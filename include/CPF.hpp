@@ -12,14 +12,14 @@ class DominioException : public std::runtime_error { // classe publica de tratam
 
 class CPF {
 private:
-	std::string numeroCpf;
-	bool validar(const std::string& cpfInserido);
-	bool validarDigitosVerificadores(const std::string& cpf);
+	std::string NumeroCpf;
+	bool Validar(const std::string& CpfInserido);
+	bool ValidarDigitosVerificadores(const std::string& Cpf);
 public:
-	void setCPF(const std::string& novoCpf); // "escreve/muda" o conteudo do atributo numeroCpf
-	inline std::string getCPF() const { 
-	    return numeroCpf; 
-	} // "retorna" uma copia do atributo numeroCpf
+	void SetCPF(const std::string& NovoCpf); // "escreve/muda" o conteudo do atributo NumeroCpf
+	inline std::string GetCPF() const { 
+	    return NumeroCpf; 
+	} // "retorna" uma copia do atributo NumeroCpf
 };
 
 
