@@ -12,12 +12,12 @@ class DominioException : public std::runtime_error { // classe publica de tratam
 
 class Codigo {
     private:
-        std::string numeroCodigo;
-        bool validarCodigo(const std::string& codigoInserido);
+        std::string NumeroCodigo;
+        bool ValidarCodigo(const std::string& CodigoInserido);
     public:
-        void setCodigo(const std::string& novoCodigo); // "escreve/muda" o conteudo do atributo numeroCodigo
-	    inline std::string getCodigo() const { 
-	        return numeroCodigo; 
+        void SetCodigo(const std::string& NovoCodigo); // "escreve/muda" o conteudo do atributo numeroCodigo
+	    inline std::string GetCodigo() const { 
+	        return NumeroCodigo; 
 	    } // "retorna" uma copia do atributo numeroCodigo
 };
 
