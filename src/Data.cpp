@@ -2,73 +2,69 @@
 // Criado por Henrique em 04/04/2025.
 // Matricula: 241020840
 
-#ifndef DATA_H
-#define DATA_H
-
+#include "Data.h"
 #include <chrono>
-#include <stdexcept>
-#include <string>
+#include <iomanip>
+#include <sstream>
 
-class Data {
-private:
-    std::chrono::year_month_day valor; // Armazena a data no formato AAAA/MM/DD
-    
-    /**
-     * Valida a data conforme os requisitos do domínio
-     * @param data Data a ser validada
-     * @return true se a data é válida
-     * @throws std::invalid_argument se a data for inválida
-     */
-    bool validarData(const std::chrono::year_month_day& data);
-    
-    /**
-     * Converte uma string no formato AAAAMMDD para year_month_day
-     * @param dataString String no formato AAAAMMDD
-     * @return Objeto year_month_day correspondente
-     * @throws std::invalid_argument se a string for inválida
-     */
-    static std::chrono::year_month_day stringParaData(const std::string& dataString);
+using namespace std::chrono;
 
-public:
-    /**
-     * Construtor que recebe uma string no formato AAAAMMDD
-     * @param dataString String no formato AAAAMMDD
-     * @throws std::invalid_argument se a data for inválida
-     */
-    explicit Data(const std::string& dataString);
-    
-    /**
-     * Construtor que recebe um objeto year_month_day
-     * @param data Objeto year_month_day
-     * @throws std::invalid_argument se a data for inválida
-     */
-    explicit Data(const std::chrono::year_month_day& data);
-    
-    /**
-     * Define o valor da data a partir de uma string no formato AAAAMMDD
-     * @param dataString String no formato AAAAMMDD
-     * @throws std::invalid_argument se a data for inválida
-     */
-    void setValor(const std::string& dataString);
-    
-    /**
-     * Define o valor da data a partir de um objeto year_month_day
-     * @param data Objeto year_month_day
-     * @throws std::invalid_argument se a data for inválida
-     */
-    void setValor(const std::chrono::year_month_day& data);
-    
-    /**
-     * Retorna o valor da data como string no formato AAAAMMDD
-     * @return String no formato AAAAMMDD
-     */
-    std::string getValor() const;
-    
-    /**
-     * Retorna o valor da data como objeto year_month_day
-     * @return Objeto year_month_day
-     */
-    std::chrono::year_month_day getData() const;
-};
+bool Data::validarData(const year_month_day& data) {
+    // Verifica se o ano é negativo
+    if (static_cast<int>(data.year()) < 0) {
+        throw std::invalid_argument("Ano negativo nao e aceito.");
+    }
 
-#endif // DATA_H
+    // Verifica se a data não é válida de acordo com a biblioteca <chrono>
+    if (!data.ok()) {
+        throw std::invalid_argument("Data invalida, verifique as informacoes digitadas.");
+    }
+    
+    return true;
+}
+
+year_month_day Data::stringParaData(const std::string& dataString) {
+    // Verifica se a string tem exatamente 8 caracteres e são todos dígitos
+    if (dataString.length() != 8 || dataString.find_first_not_of("0123456789") != std::string::npos) {
+        throw std::invalid_argument("Data deve estar no formato AAAAMMDD com apenas digitos.");
+    }
+
+    int ano = std::stoi(dataString.substr(0, 4));
+    unsigned mes = std::stoi(dataString.substr(4, 2));
+    unsigned dia = std::stoi(dataString.substr(6, 2));
+
+    return year_month_day{year{ano}, month{mes}, day{dia}};
+}
+
+Data::Data(const std::string& dataString) {
+    setValor(dataString);
+}
+
+Data::Data(const year_month_day& data) {
+    setValor(data);
+}
+
+void Data::setValor(const std::string& dataString) {
+    year_month_day novaData = stringParaData(dataString);
+    if (validarData(novaData)) {
+        valor = novaData;
+    }
+}
+
+void Data::setValor(const year_month_day& data) {
+    if (validarData(data)) {
+        valor = data;
+    }
+}
+
+std::string Data::getValor() const {
+    std::ostringstream oss;
+    oss << std::setfill('0') << std::setw(4) << static_cast<int>(valor.year())
+        << std::setw(2) << static_cast<unsigned>(valor.month())
+        << std::setw(2) << static_cast<unsigned>(valor.day());
+    return oss.str();
+}
+
+year_month_day Data::getData() const {
+    return valor;
+}
