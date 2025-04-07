@@ -2,30 +2,73 @@
 // Criado por Henrique em 04/04/2025.
 // Matricula: 241020840
 
-#include "Data.h"
+#ifndef DATA_H
+#define DATA_H
 
+#include <chrono>
+#include <stdexcept>
+#include <string>
 
-bool Data::validarData(const std::chrono::year_month_day &data) {
-    // Verifica se o ano e negativo, o mes ou o dia sao zero (valores invalidos)
-    if (static_cast<int>(data.year()) < 0 ||
-       static_cast<unsigned>(data.month()) == 0 ||
-       static_cast<unsigned>(data.day()) == 0) {
-        throw std::invalid_argument("Numeros negativos ou zeros nao sao aceitos.");
-    }
+class Data {
+private:
+    std::chrono::year_month_day valor; // Armazena a data no formato AAAA/MM/DD
+    
+    /**
+     * Valida a data conforme os requisitos do domínio
+     * @param data Data a ser validada
+     * @return true se a data é válida
+     * @throws std::invalid_argument se a data for inválida
+     */
+    bool validarData(const std::chrono::year_month_day& data);
+    
+    /**
+     * Converte uma string no formato AAAAMMDD para year_month_day
+     * @param dataString String no formato AAAAMMDD
+     * @return Objeto year_month_day correspondente
+     * @throws std::invalid_argument se a string for inválida
+     */
+    static std::chrono::year_month_day stringParaData(const std::string& dataString);
 
-    // Verifica se a data nao e válida de acordo com a biblioteca <chrono>
-    if (!data.ok()) {
-        throw std::invalid_argument("Data invalida, verifique as informacoes digitadas ou"
-                                    " veja se ela esta no formato AAAA/MM/DD.");
-    }
-    //Se passou por todas as verificacoes, a data e valida
-        return true;
-}
+public:
+    /**
+     * Construtor que recebe uma string no formato AAAAMMDD
+     * @param dataString String no formato AAAAMMDD
+     * @throws std::invalid_argument se a data for inválida
+     */
+    explicit Data(const std::string& dataString);
+    
+    /**
+     * Construtor que recebe um objeto year_month_day
+     * @param data Objeto year_month_day
+     * @throws std::invalid_argument se a data for inválida
+     */
+    explicit Data(const std::chrono::year_month_day& data);
+    
+    /**
+     * Define o valor da data a partir de uma string no formato AAAAMMDD
+     * @param dataString String no formato AAAAMMDD
+     * @throws std::invalid_argument se a data for inválida
+     */
+    void setValor(const std::string& dataString);
+    
+    /**
+     * Define o valor da data a partir de um objeto year_month_day
+     * @param data Objeto year_month_day
+     * @throws std::invalid_argument se a data for inválida
+     */
+    void setValor(const std::chrono::year_month_day& data);
+    
+    /**
+     * Retorna o valor da data como string no formato AAAAMMDD
+     * @return String no formato AAAAMMDD
+     */
+    std::string getValor() const;
+    
+    /**
+     * Retorna o valor da data como objeto year_month_day
+     * @return Objeto year_month_day
+     */
+    std::chrono::year_month_day getData() const;
+};
 
-void Data::setData(const std::chrono::year_month_day &data) {
-    if (validarData(data)) {} // Essa condicao nao faz nada, mas a validacao acontece
-
-    this->data = data; // Atribui a data se for valida
-}
-
-
+#endif // DATA_H
