@@ -11,7 +11,7 @@ class Senha{
 
     public:
         bool setSenha(std::string);             //inicializa a senha de acordo input
-        std::string getSenha() const;                 //retorna a string senha
+        std::string getSenha() const;           //retorna a string senha
 };
 
 inline std::string Senha::getSenha() const{
