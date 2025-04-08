@@ -1,3 +1,7 @@
+//
+// Criado por Nyvea em 08/04/2025.
+// Matricula: 241040207
+
 #ifndef SENHA_H_INCLUDED
 #define SENHA_H_INCLUDED
 
