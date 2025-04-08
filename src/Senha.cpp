@@ -1,3 +1,7 @@
+//
+// Criado por Nyvea em 08/04/2025.
+// Matricula: 241040207
+
 #include "senha.h"
 #include <string>
 #include <cctype>
@@ -44,7 +48,7 @@ bool Senha::setSenha(std::string senha){
     if(!Senha::validaSenha(senha)){                                                     //se a senha for invalida, retorna falso
             return false;
     }
-    
+
     this->senha = senha;                                                                //se a senha for valida, atribui a string a variavel do objeto senha
 
     return true;
