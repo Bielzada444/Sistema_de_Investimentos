@@ -1,4 +1,4 @@
-#include "SENHA.h"
+#include "senha.h"
 #include <string>
 #include <cctype>
 
@@ -10,17 +10,32 @@ bool Senha::validaSenha(std::string senha){
     if((senha.length() > CARACTERES)||(senha.length() < CARACTERES)) return false;      //confere se a senha possui 6 caracteres
 
     for(i = 0; i < CARACTERES; i++){                                                    //iteracoes para conferir caracter por caracter
-        if(isupper(senha[i])) maiuscula = true;                                         //se ha letra maiucula, a variavel eh verdadeira
-        if(islower(senha[i])) minuscula = true;                                         //se ha letra minuscula, a variavel eh verdadeira
-        if(isdigit(senha[i])) numero = true;                                            //se ha numero, a variavel eh verdadeira
-        if((senha[i] == '#')||(senha[i] == '$')||(senha[i] == '%')||(senha[i] == '&')) caractereEspecial = true;        //se ha um dos caracteres especiais previstos, a variavel eh verdadeira
+        if(isupper(senha[i])){                                                          //se ha letra maiucula, a variavel eh verdadeira
+            maiuscula = true;
+        }
+
+        if(islower(senha[i])){                                                          //se ha letra minuscula, a variavel eh verdadeira
+            minuscula = true;
+        }
+
+        if(isdigit(senha[i])){                                                          //se ha numero, a variavel eh verdadeira
+            numero = true;
+        }
+
+        if((senha[i] == '#')||(senha[i] == '$')||(senha[i] == '%')||(senha[i] == '&')){ //se ha um dos caracteres especiais previstos, a variavel eh verdadeira
+            caractereEspecial = true;
+        }
 
         for(j = 0; j < i; j++){                                                         //iteracoes para comparar com os outros caracteres
-            if(senha[i] == senha[j]) return false;                                      //se ha dois caracteres iguais, a senha eh invalida
+            if(senha[i] == senha[j]){                                                   //se ha dois caracteres iguais, a senha eh invalida
+                return false;
+            }
         }
     }
 
-    if(!maiuscula || !minuscula || !numero || !caractereEspecial) return false;         //se algum dos ccaracteres exigidos nao aparecem, a senha eh invalida
+    if(!maiuscula || !minuscula || !numero || !caractereEspecial){                      //se algum dos ccaracteres exigidos nao aparecem, a senha eh invalida
+        return false;
+    }
 
     return true;                                                                        //a senha cumpre todos os requisitos e eh valida
 }
