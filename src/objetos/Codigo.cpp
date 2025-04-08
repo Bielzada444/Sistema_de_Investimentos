@@ -1,3 +1,7 @@
+//
+// Criado por Gabriel em 03/04/2025.
+// Matricula: 241038942
+
 #include "Codigo.hpp"
 #include <string>
 #include <algorithm>
