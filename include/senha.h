@@ -6,15 +6,15 @@
 class Senha{
     private:
         static const int CARACTERES = 6;        //a senha deve possuir 6 caracteres
-        std::string senha;                      //a senha é lida como uma string
+        std::string senha;                      //a senha Ã© lida como uma string
         bool validaSenha(std::string);          //retorna true se a senha for valida e false se nao for
 
     public:
         bool setSenha(std::string);             //inicializa a senha de acordo input
-        std::string getSenha();                 //retorna a string senha
+        std::string getSenha() const;                 //retorna a string senha
 };
 
-inline std::string Senha::getSenha(){
+inline std::string Senha::getSenha() const{
     return senha;
 }
 
