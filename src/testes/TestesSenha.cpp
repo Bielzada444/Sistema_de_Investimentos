@@ -1,10 +1,9 @@
 //
-// Criado por Henrique em 08/04/2025.
+// Criado por Nyvea em 08/04/2025.
 // Matricula: 241040207
 
 #include <iostream>
 #include "senha.h"
-
 
 int main()
 {
@@ -24,7 +23,7 @@ int main()
         std::cout << "A senha eh: " << a.getSenha() << '\n';
     }
     else{
-        std::cout << "A senha inserida (" << a.getSenha() << ") eh invalida!\n";
+        std::cout << "A senha inserida (" << senha << ") eh invalida!\n";
     }
 
     senha = "JK&67%";                                               //ex senha invalida (sem letra minuscula)
@@ -33,7 +32,7 @@ int main()
         std::cout << "A senha eh: " << a.getSenha() << '\n';
     }
     else{
-        std::cout << "A senha inserida (" << a.getSenha() << ") eh invalida!\n";
+        std::cout << "A senha inserida (" << senha << ") eh invalida!\n";
     }
 
     senha = "KmSt#&";                                               //ex senha invalida (sem numero)
@@ -42,7 +41,7 @@ int main()
         std::cout << "A senha eh: " << a.getSenha() << '\n';
     }
     else{
-        std::cout << "A senha inserida (" << a.getSenha() << ") eh invalida!\n";
+        std::cout << "A senha inserida (" << senha << ") eh invalida!\n";
     }
 
     senha = "JKmtS9";                                               //ex senha invalida (sem caracter especial)
@@ -51,7 +50,7 @@ int main()
         std::cout << "A senha eh: " << a.getSenha() << '\n';
     }
     else{
-        std::cout << "A senha inserida (" << a.getSenha() << ") eh invalida!\n";
+        std::cout << "A senha inserida (" << senha << ") eh invalida!\n";
     }
 
     senha = "Tsjs#5";                                               //ex senha invalida (caracter duplicado)
@@ -60,7 +59,7 @@ int main()
         std::cout << "A senha eh: " << a.getSenha() << '\n';
     }
     else{
-        std::cout << "A senha inserida (" << a.getSenha() << ") eh invalida!\n";
+        std::cout << "A senha inserida (" << senha << ") eh invalida!\n";
     }
 
     senha = "Nj7#SQt%";                                             //ex senha invalida (maior que 6 caracteres)
@@ -69,7 +68,7 @@ int main()
         std::cout << "A senha eh: " << a.getSenha() << '\n';
     }
     else{
-        std::cout << "A senha inserida (" << a.getSenha() << ") eh invalida!\n";
+        std::cout << "A senha inserida (" << senha << ") eh invalida!\n";
     }
 
     senha = "7$Sn";                                                 //ex senha invalida (menor que 6 caracteres)
@@ -78,7 +77,7 @@ int main()
         std::cout << "A senha eh: " << a.getSenha() << '\n';
     }
     else{
-        std::cout << "A senha inserida (" << a.getSenha() << ") eh invalida!\n";
+        std::cout << "A senha inserida (" << senha << ") eh invalida!\n";
     }
 
     std::cout << "Digite a senha para teste (para terminar o programa, digite '0'\n";               //para mais testes
@@ -90,7 +89,7 @@ int main()
             std::cout << "A senha eh: " << a.getSenha() << '\n';
         }
         else{
-            std::cout << "A senha inserida (" << a.getSenha() << ") eh invalida!\n";
+            std::cout << "A senha inserida (" << senha << ") eh invalida!\n";
         }
 
         std::cout << "Digite a senha para teste (para terminar o programa, digite '0')\n";
