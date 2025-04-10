@@ -46,7 +46,7 @@ bool Senha::validaSenha(std::string senha){
 
 bool Senha::setSenha(std::string senha){
     if(!Senha::validaSenha(senha)){                                                     //se a senha for invalida, retorna falso
-            return false;
+        return false;
     }
 
     this->senha = senha;                                                                //se a senha for valida, atribui a string a variavel do objeto senha
