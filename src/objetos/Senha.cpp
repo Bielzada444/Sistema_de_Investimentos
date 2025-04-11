@@ -1,8 +1,8 @@
 //
-// Criado por Nyvea em 08/04/2025.
+// Criado por Nyvea em 11/04/2025.
 // Matricula: 241040207
 
-#include "senha.h"
+#include "Senha.h"
 #include <string>
 #include <cctype>
 
@@ -11,7 +11,9 @@ bool Senha::validaSenha(std::string senha){
     bool numero, maiuscula, minuscula, caractereEspecial;                               //variaveis para conferir se a senha inserida possui todos os caracteres necessarios
     numero = maiuscula = minuscula = caractereEspecial = false;                         //inicializacao das variaveis como falsas
 
-    if((senha.length() > CARACTERES)||(senha.length() < CARACTERES)) return false;      //confere se a senha possui 6 caracteres
+    if((senha.length() > CARACTERES)||(senha.length() < CARACTERES)){                   //confere se a senha possui 6 caracteres
+        throw DominioException("Tamanho invalido! Senha deve conter exatamente 6 caracteres");
+    }       
 
     for(i = 0; i < CARACTERES; i++){                                                    //iteracoes para conferir caracter por caracter
         if(isupper(senha[i])){                                                          //se ha letra maiucula, a variavel eh verdadeira
@@ -32,13 +34,19 @@ bool Senha::validaSenha(std::string senha){
 
         for(j = 0; j < i; j++){                                                         //iteracoes para comparar com os outros caracteres
             if(senha[i] == senha[j]){                                                   //se ha dois caracteres iguais, a senha eh invalida
-                return false;
+                throw DominioException("Formato invalido! Senha não pode conter dois caracteres iguais");
             }
         }
     }
 
-    if(!maiuscula || !minuscula || !numero || !caractereEspecial){                      //se algum dos ccaracteres exigidos nao aparecem, a senha eh invalida
-        return false;
+    if(!maiuscula){                      
+        throw DominioException("Formato invalido! Senha nao possui letra maiuscula");
+    } else if(!minuscula){
+        throw DominioException("Formato invalido! Senha nao possui letra minuscula");
+    } else if(!numero){
+        throw DominioException("Formato invalido! Senha nao possui numero");
+    } else if(!caractereEspecial){
+        throw DominioException("Formato invalido! Senha nao possui caracter especial");
     }
 
     return true;                                                                        //a senha cumpre todos os requisitos e eh valida
@@ -46,7 +54,6 @@ bool Senha::validaSenha(std::string senha){
 
 bool Senha::setSenha(std::string senha){
     if(!Senha::validaSenha(senha)){                                                     //se a senha for invalida, retorna falso
-        return false;
     }
 
     this->senha = senha;                                                                //se a senha for valida, atribui a string a variavel do objeto senha
