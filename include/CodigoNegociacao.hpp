@@ -1,12 +1,12 @@
 //Autor Cleriston
 //Matricula 232001433
 
-#ifndef CODIGONEGOCIACAO_H
-#define CODIGONEGOCIACAO_H
+#ifndef CODIGONEGOCIACAO_HPP
+#define CODIGONEGOCIACAO_HPP
 
 #include<iostream>
 #include<string>
-#include <stdexcept> // biblioteca onde esta contida a  calsse base runtime_error 
+#include <stdexcept> // biblioteca onde esta contida a  classe base runtime_error 
  
  class DominioException : public std::runtime_error { // classe publica de tratamento de erros
      public:
@@ -27,4 +27,4 @@ class CodigoNegociacao {
         }
 };
 
-#endif // CODIGONEGOCIACAO_H
+#endif // CODIGONEGOCIACAO_HPP
