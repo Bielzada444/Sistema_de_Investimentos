@@ -12,7 +12,10 @@ int Quantidade::stringParaInteiro(std::string& quantidade){
     if(quantidade.empty()){ // Verifica se a string eh vazia
         throw DominioException("Por favor, digite algum valor para continuar.");
     }
-    
+    if(quantidade.length() > 7){
+        throw DominioException("Quantidade invalida! O valor inserido esta fora da faixa de valores permitdos.");
+    }
+   
     if(!std::all_of(quantidade.begin(), quantidade.end(), ::isdigit)){ // Verifica se todos os digitos sao numeros
         throw DominioException("O valor da quantidade deve conter apenas numeros.");
     }
