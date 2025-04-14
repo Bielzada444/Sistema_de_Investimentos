@@ -6,7 +6,23 @@
 
 #include <cmath>
 #include <stdexcept>
+#include <string>
+#include <algorithm>
 
+double Dinheiro::stringParaDouble(std::string& valor){
+       if(valor.empty()){ // Verifica se a string eh vazia
+        throw DominioException("Por favor, digite algum valor para continuar.");
+    }
+    if(valor.length() > 7){ // verifica se o tamanho da string eh maior que 7, o que indica que o valor ultrapassou o limite
+        throw DominioException("Valor invalida! O valor que voce digitou esta fora da faixa de valores.");
+    }
+   
+    if(!std::all_of(valor.begin(), valor.end(), ::isdigit)){ // Verifica se todos os digitos sao numeros
+        throw DominioException("O valor deve conter apenas numeros.");
+    }
+      double valorDef = std::stod(valor); // Converte o valor de string para um double e armazena na variavel valorDef
+      return valorDef; 
+}
 // Metodo que arredonda o valor para ter algo significante somente ate a 2a casa decimal
 double Dinheiro::arrendodar(const double &valor) {
     return std::round(valor *100.00) / 100.00;
@@ -21,10 +37,10 @@ bool Dinheiro::validarValor(const double &valor) {
 
 }
 
-void Dinheiro::setValor(const double &valor) {
-    double valor_T = arrendodar(valor);
+void Dinheiro::setValor(std::string& valor) {
+    double valor_T = stringParaDouble(valor);
+    valor_T = arrendodar(valor_T);
     if (validarValor(valor_T)) {} // Essa condicao nao faz nada, mas a validacao acontece
     this->valor = valor_T;   // Atribui valor arredondado
 }
-
 
