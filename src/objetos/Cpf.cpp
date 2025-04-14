@@ -2,14 +2,14 @@
 // Criado por Gabriel em 03/04/2025.
 // Matricula: 241038942
 
-#include "CPF.hpp"
+#include "Cpf.hpp"
 #include <string>
 #include <algorithm>
 
 bool CPF::validar(const std::string& cpfInserido) {
 	
 	if(cpfInserido.length() != 11){ // verificacao se foi inserido exatamente 11 caracteres
-	    throw DominioException("O tamanho esta invalido! CPF deve conter exatamente 11 digitos.");
+	    throw DominioException("O tamanho esta invalido! CPF deve conter exatamente 11 digitos sem pontuacao.");
 	}
 	
 	bool todos_digitos = std::all_of(cpfInserido.begin(), cpfInserido.end(), [](char c) { // verificacao se sao todos caracteres numericos
@@ -66,4 +66,3 @@ void CPF::setCPF(const std::string& numeroCpf) {
 	}
 	this->numeroCpf = numeroCpf;
 }
-
