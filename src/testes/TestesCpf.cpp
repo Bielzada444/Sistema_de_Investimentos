@@ -9,49 +9,49 @@ int main()
 {
     
     CPF cpf; //  objeto cpf da classe CPF
-    std::string cpfinput = "10145408108"; //  string cpfinput para armazenar o CPF
+    std::string cpfInput = "10145408108"; //  string cpfInput para armazenar o CPF
     try{
-    cpf.setCPF(cpfinput);
+    cpf.setCPF(cpfInput);
     std::cout << "CPF valido: " << cpf.getCPF() << std::endl;
     } catch (const DominioException& cpfError) {                                  // no caso de erro, executado 
            std::cerr << "Erro de validacao: " << cpfError.what() << std::endl;    // no caso de excecao, exibe mens de erro contida em DE 
     }
-    cpfinput = "123";
+    cpfInput = "123";
     
     try{
-    cpf.setCPF(cpfinput);
+    cpf.setCPF(cpfInput);
     std::cout << "CPF valido: " << cpf.getCPF() << std::endl;
     } catch (const DominioException& cpfError) {                                  // no caso de erro, executado 
            std::cerr << "Erro de validacao: " << cpfError.what() << std::endl;    // no caso de excecao, exibe mens de erro contida em DE 
     }
-    cpfinput = "11111111111";
+    cpfInput = "11111111111";
     
     try{
-    cpf.setCPF(cpfinput);
+    cpf.setCPF(cpfiInput);
     std::cout << "CPF valido: " << cpf.getCPF() << std::endl;
     } catch (const DominioException& cpfError) {                                  // no caso de erro, executado 
            std::cerr << "Erro de validacao: " << cpfError.what() << std::endl;    // no caso de excecao, exibe mens de erro contida em DE 
     }
-    cpfinput = "123.456.789-09";
+    cpfInput = "123.456.789-09";
     
     try{
-    cpf.setCPF(cpfinput);
+    cpf.setCPF(cpfInput);
     std::cout << "CPF valido: " << cpf.getCPF() << std::endl;
     } catch (const DominioException& cpfError) {                                  // no caso de erro, executado 
            std::cerr << "Erro de validacao: " << cpfError.what() << std::endl;    // no caso de excecao, exibe mens de erro contida em DE 
     }
-    cpfinput = "52998224724";
+    cpfInput = "52998224724";
     
     try{
-    cpf.setCPF(cpfinput);
+    cpf.setCPF(cpfInput);
     std::cout << "CPF valido: " << cpf.getCPF() << std::endl;
     } catch (const DominioException& cpfError) {                                  // no caso de erro, executado 
            std::cerr << "Erro de validacao: " << cpfError.what() << std::endl;    // no caso de excecao, exibe mens de erro contida em DE 
     }
-    cpfinput = "1234567890a";
+    cpfInput = "1234567890a";
     
     try{
-    cpf.setCPF(cpfinput);
+    cpf.setCPF(cpfInput);
     std::cout << "CPF valido: " << cpf.getCPF() << std::endl;
     } catch (const DominioException& cpfError) {                                  // no caso de erro, executado 
            std::cerr << "Erro de validacao: " << cpfError.what() << std::endl;    // no caso de excecao, exibe mens de erro contida em DE 
@@ -61,9 +61,9 @@ int main()
     
     while(!valido){
         std::cout << "Digite o CPF: " << std::endl;
-        std::cin >> cpfinput; // atribuicao do CPF digitado
+        std::getline(std::cin,cpfInput); // atribuicao do CPF digitado
        try{ // tentativa da operacao do bloco
-            cpf.setCPF(cpfinput); // envio para validacao
+            cpf.setCPF(cpfInput); // envio para validacao
             std::cout << "CPF valido: " << cpf.getCPF() << std::endl;
             valido = true;
         } catch (const DominioException& cpfError) { // no caso de erro, executado 
