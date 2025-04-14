@@ -1,3 +1,4 @@
+
 //
 // Criado por Henrique em 04/04/2025.
 // Matricula: 241020840
@@ -12,12 +13,12 @@ using namespace std::chrono;
 bool Data::validarData(const year_month_day& data) {
     // Verifica se o ano é negativo
     if (static_cast<int>(data.year()) < 0) {
-        throw std::invalid_argument("Ano negativo nao e aceito.");
+        throw DominioException("Ano negativo nao e aceito.");
     }
 
     // Verifica se a data não é válida de acordo com a biblioteca <chrono>
     if (!data.ok()) {
-        throw std::invalid_argument("Data invalida, verifique as informacoes digitadas.");
+        throw DominioException("Data invalida, verifique as informacoes digitadas.");
     }
     
     return true;
@@ -26,7 +27,7 @@ bool Data::validarData(const year_month_day& data) {
 year_month_day Data::stringParaData(const std::string& dataString) {
     // Verifica se a string tem exatamente 8 caracteres e são todos dígitos
     if (dataString.length() != 8 || dataString.find_first_not_of("0123456789") != std::string::npos) {
-        throw std::invalid_argument("Data deve estar no formato AAAAMMDD com apenas digitos.");
+        throw DominioException("Data deve estar no formato AAAAMMDD com apenas digitos.");
     }
 
     int ano = std::stoi(dataString.substr(0, 4));
@@ -36,13 +37,7 @@ year_month_day Data::stringParaData(const std::string& dataString) {
     return year_month_day{year{ano}, month{mes}, day{dia}};
 }
 
-Data::Data(const std::string& dataString) {
-    setValor(dataString);
-}
 
-Data::Data(const year_month_day& data) {
-    setValor(data);
-}
 
 void Data::setValor(const std::string& dataString) {
     year_month_day novaData = stringParaData(dataString);
