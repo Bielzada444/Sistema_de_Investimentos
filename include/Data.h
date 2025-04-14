@@ -33,20 +33,7 @@ private:
     static std::chrono::year_month_day stringParaData(const std::string& dataString);
 
 public:
-    /**
-     * Construtor que recebe uma string no formato AAAAMMDD
-     * @param dataString String no formato AAAAMMDD
-     * @throws std::invalid_argument se a data for inválida
-     */
-   // explicit Data(const std::string& dataString);
-    
-    /**
-     * Construtor que recebe um objeto year_month_day
-     * @param data Objeto year_month_day
-     * @throws std::invalid_argument se a data for inválida
-     */
-//explicit Data(const std::chrono::year_month_day& data);
-    
+ 
     /**
      * Define o valor da data a partir de uma string no formato AAAAMMDD
      * @param dataString String no formato AAAAMMDD
