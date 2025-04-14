@@ -8,6 +8,10 @@
 
 bool Codigo::validarCodigo(const std::string& codigoInserido) {
 	
+	if(codigoInserido.empty()){ //verificacao se foi digitado algo
+	    throw DominioException("Por favor, digite algum valor para continuar");
+	}
+	
 	if(codigoInserido.length() != 5){ // verificacao se foi inserido exatamente 5 caracteres
 	    throw DominioException("O tamanho esta invalido! Codigo deve conter exatamente 5 digitos.");
 	}
