@@ -7,6 +7,9 @@
 #include <algorithm>
 
 bool CPF::validar(const std::string& cpfInserido) {
+	if(cpfInserido.empty()){
+	    throw DominioException("Por favor, digite algum valor para continuar");
+	}
 	
 	if(cpfInserido.length() != 11){ // verificacao se foi inserido exatamente 11 caracteres
 	    throw DominioException("O tamanho esta invalido! CPF deve conter exatamente 11 digitos sem pontuacao.");
