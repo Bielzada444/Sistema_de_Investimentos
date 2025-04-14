@@ -3,10 +3,6 @@
 //  Matricula 241020840
 
 #include "Quantidade.h"
-//
-// Criado por Henrique em 10/04/2025
-//  Matricula 241020840
-
 #include <string>
 #include <algorithm>
 
