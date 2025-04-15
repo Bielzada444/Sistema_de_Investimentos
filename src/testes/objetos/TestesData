@@ -1,0 +1,24 @@
+#include <iostream>
+#include "Data.h"
+#include <chrono>
+#include <stdexcept>
+int main(){
+    Data data;
+    std::string input;
+    bool valido = false;
+    
+    while(!valido){
+           std::cout << "Digite uma data: ";
+        std::getline(std::cin, input); // Atribuicao da data digitada
+       try{ // Tentativa da operacao do bloco
+            data.setValor(input); // envio para validacao
+            std::cout << "Data valida: " << data.getValor() << std::endl;
+            valido = true;
+       }
+        catch (const DominioException& dataError) { // No caso de erro, executado 
+           std::cerr << "Erro de validacao: " << dataError.what() << std::endl; // No caso de excecao, exibe mens de erro contida em DE
+        }  
+    }
+    
+    return 0;
+}
