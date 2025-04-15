@@ -12,16 +12,16 @@ class TUCpf { //declaracao da classe
         const static std::string CPF_VALIDO; // string usada para teste do CPF_VALIDO
         const static std::string CPF_INVALIDO; //  string usada para teste do CPF_INVALIDO
         CPF* cpf; //  ponteiro do objeto cpf que sera usado nos testes
-        int estado; // inteiro que ira armazenar o estado de teste, seja SUCESSO ou FALHA
+        int estadoCpf; // inteiro que ira armazenar o estado de teste, seja SUCESSO ou FALHA
         
-        void setUp(); // inicializa o ambiente de teste
-        void tearDown(); // limpa o ambiente de teste
-        void testarCenarioValido(); // testa um cpf valido
-        void testarCenarioInvalido(); // testa um cpf invalido
+        void setUpCpf(); // inicializa o ambiente de teste
+        void tearDownCpf(); // limpa o ambiente de teste
+        void testarCenarioValidoCpf(); // testa um cpf valido
+        void testarCenarioInvalidoCpf(); // testa um cpf invalido
     public:
         const static int SUCESSO = 0; // inteiro que define sucesso do caso de teste
         const static int FALHA = -1; // inteiro que define falha do caso de teste
-        int run(); // dereciona a execucaco de todos os testes 
+        int runCpf(); // dereciona a execucaco de todos os testes 
 };
 
 #endif
