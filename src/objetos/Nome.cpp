@@ -9,7 +9,7 @@ bool Nome::validaNome(std::string nome){
         throw DominioException("Nome invalido! Nome deve conter no maximo 20 caracteres");      //se sim, o nome eh invalido
     }
     else if((nome.length() < 1) || (nome.length() == 1 && nome[0] == ' ')){                                                     //confere se o nome tem ao menos um caracter, ou se esse caracter eh um espaco
-        throw DominioException("Nome invalido! Nome deve conter no minimo 1 caracter que deve ser diferente de ' '.")
+        throw DominioException("Nome invalido! Nome deve conter no minimo 1 caracter que deve ser diferente de ' '.");
     }
 
     for(i = 0; i < nome.length() - 1; i++){                                     //perpassa caracter por caracter
