@@ -6,6 +6,13 @@
 #define NOME_H_INCLUDED
 
 #include <string>
+#include <stdexcept>
+
+class DominioException : public std::runtime_error {                    // classe publica de tratamento de erros
+     public:
+         explicit DominioException(const std::string& mensagem)         // construtor da classe que recebe as mensagens de erro
+         : std::runtime_error(mensagem) {}                             // passa a mensagem para o construtor da classe base
+ };
 
 class Nome{
     private:
