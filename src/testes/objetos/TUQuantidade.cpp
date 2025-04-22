@@ -1,10 +1,10 @@
-
+//
+// Feito por Henrique em 22/04/2025
+// Matricula 241020840
 #include "TUQuantidade.h"
-#include <string>
 
-
-const std::string TUQuantidade::QUANTIDADE_VALIDO = "150000"; // inicializacao de Quantidade que passa em todos os testes
-const std::string TUQuantidade::QUANTIDADE_INVALIDO = "111111111";// inicializacao de Quantidade que falha na validacao
+ std::string TUQuantidade::QUANTIDADE_VALIDA = "150000"; // inicializacao de Quantidade que passa em todos os testes
+ std::string TUQuantidade::QUANTIDADE_INVALIDA = "111111111";// inicializacao de Quantidade que falha na validacao
 
 
 void TUQuantidade::setUpQuantidade() { 
@@ -18,8 +18,8 @@ void TUQuantidade::tearDownQuantidade() {
 
 void TUQuantidade::testarCenarioValidoQuantidade() {
     try { 
-        quantidade->setQuantidade(QUANTIDADE_VALIDO); // tenta definir um Quantidade valido
-        if( quantidade->getQuantidade() != QUANTIDADE_VALIDO){ // verifica se o valor foi armazenado corretamente
+        quantidade->setQuantidade(QUANTIDADE_VALIDA); // tenta definir um Quantidade valido
+        if( quantidade->getQuantidade() != std::stoi(QUANTIDADE_VALIDA)){ // verifica se o valor foi armazenado corretamente
             estadoQuantidade = FALHA; // se for diferente do esperado marca como FALHA
         }
     } catch(DominioException &excecao) { // lanca excecao
@@ -29,10 +29,10 @@ void TUQuantidade::testarCenarioValidoQuantidade() {
 
 void TUQuantidade::testarCenarioInvalidoQuantidade() {
     try {
-        quantidade->setQuantidade(QUANTIDADE_INVALIDO); //tenta definir um Quantidade invalido
+        quantidade->setQuantidade(QUANTIDADE_INVALIDA); //tenta definir um Quantidade invalido
         estadoQuantidade = FALHA; // se conseguir marca como FALHA
     } catch(DominioException &excecao) { //lanca excecao
-        if(quantidade->getQuantidade() == QUANTIDADE_INVALIDO){ //verifica se o Quantidade invalido nao foi armazenado
+        if(quantidade->getQuantidade() == std::stoi(QUANTIDADE_INVALIDA)){ //verifica se o Quantidade invalido nao foi armazenado
             estadoQuantidade = FALHA; // se foi armazenado marca como FALHA
         }
     }
