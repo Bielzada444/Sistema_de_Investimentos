@@ -2,18 +2,11 @@
 // Criado por Nyvea em 08/04/2025.
 // Matricula: 241040207
 
-#ifndef NOME_H_INCLUDED
-#define NOME_H_INCLUDED
+#ifndef NOME_HPP_INCLUDED
+#define NOME_HPP_INCLUDED
 
 #include <string>
-#include <stdexcept>
-
-class DominioException : public std::runtime_error {                    // classe publica de tratamento de erros
-     public:
-         explicit DominioException(const std::string& mensagem)         // construtor da classe que recebe as mensagens de erro
-         : std::runtime_error(mensagem) {}                             // passa a mensagem para o construtor da classe base
- };
-
+#include "DominioException.hpp"
 class Nome{
     private:
         static const int MAXIMO = 21;                                   //limite de caracters do nome: 20 + 1 (do '\0')
@@ -30,4 +23,4 @@ inline std::string Nome::getNome() const{                               //metodo
 }
 
 
-#endif // NOME_H_INCLUDED
+#endif // NOME_HPP_INCLUDED
