@@ -1,17 +1,13 @@
 //
 // Criado por Henrique em 04/04/2025.
 // Matricula: 241020840
-#ifndef DATA_H
-#define DATA_H
+#ifndef DATA_HPP
+#define DATA_HPP
 
 #include <chrono>
-#include <stdexcept>
+#include "DominioException.hpp"
 #include <string>
- class DominioException : public std::runtime_error { // Classe publica de tratamento de erros
-     public:
-         explicit DominioException(const std::string& mensagem) // Construtor da classe que recebe as mensagens de erro
-         : std::runtime_error(mensagem) {} // Passa a mensagem para o construtor da classe base
- };
+
 class Data {
 private:
     std::chrono::year_month_day valor; // Armazena a data no formato AAAA/MM/DD
@@ -39,26 +35,26 @@ public:
      * @param dataString String no formato AAAAMMDD
      * @throws std::invalid_argument se a data for inválida
      */
-    void setValor(const std::string& dataString);
+    void setData(const std::string& dataString);
     
     /**
      * Define o valor da data a partir de um objeto year_month_day
      * @param data Objeto year_month_day
      * @throws std::invalid_argument se a data for inválida
      */
-    void setValor(const std::chrono::year_month_day& data);
+    void setData(const std::chrono::year_month_day& data);
     
     /**
      * Retorna o valor da data como string no formato AAAAMMDD
      * @return String no formato AAAAMMDD
      */
-    std::string getValor() const;
+    std::string getData() const;
     
     /**
      * Retorna o valor da data como objeto year_month_day
      * @return Objeto year_month_day
      */
-    std::chrono::year_month_day getData() const;
+    std::chrono::year_month_day getDataPrimeiro() const;
 };
 
-#endif // DATA_H
+#endif // DATA_HPP
