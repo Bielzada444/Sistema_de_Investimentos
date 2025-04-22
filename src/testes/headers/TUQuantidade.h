@@ -1,11 +1,12 @@
-#ifndef "TUQantidade.h"
-#define "TUQuantidade.h"
+#ifndef TUQUANTIDADE_H
+#define TUQUANTIDADE_H
 #include "Quantidade.h"
+#include <string>
 
 class TUQuantidade{
         private:
-        const static std::string QUANTIDADE_VALIDA; // string usada para teste do QUANTIDADE_VALIDO
-        const static std::string QUANTIADADE_INVALIDO; //  string usada para teste do QUANTIDADE_INVALIDO
+         static std::string QUANTIDADE_VALIDA; // string usada para teste do QUANTIDADE_VALIDO
+         static std::string QUANTIDADE_INVALIDA; //  string usada para teste do QUANTIDADE_INVALIDO
         Quantidade* quantidade; //  ponteiro do objeto Quantidade que sera usado nos testes
         int estadoQuantidade; // inteiro que ira armazenar o estado de teste, seja SUCESSO ou FALHA
         
