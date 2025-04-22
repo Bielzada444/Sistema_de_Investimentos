@@ -3,7 +3,7 @@
 // Criado por Henrique em 04/04/2025.
 // Matricula: 241020840
 
-#include "Data.h"
+#include "Data.hpp"
 #include <chrono>
 #include <iomanip>
 #include <sstream>
@@ -39,20 +39,20 @@ year_month_day Data::stringParaData(const std::string& dataString) {
 
 
 
-void Data::setValor(const std::string& dataString) {
+void Data::setData(const std::string& dataString) {
     year_month_day novaData = stringParaData(dataString);
     if (validarData(novaData)) {
         valor = novaData;
     }
 }
 
-void Data::setValor(const year_month_day& data) {
+void Data::setData(const year_month_day& data) {
     if (validarData(data)) {
         valor = data;
     }
 }
 
-std::string Data::getValor() const {
+std::string Data::getData() const {
     std::ostringstream oss;
     oss << std::setfill('0') << std::setw(4) << static_cast<int>(valor.year())
         << std::setw(2) << static_cast<unsigned>(valor.month())
@@ -60,6 +60,6 @@ std::string Data::getValor() const {
     return oss.str();
 }
 
-year_month_day Data::getData() const {
+year_month_day Data::getDataPrimeiro() const {
     return valor;
 }
