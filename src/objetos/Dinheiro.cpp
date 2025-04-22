@@ -13,11 +13,11 @@ double Dinheiro::stringParaDouble(std::string& valor){
        if(valor.empty()){ // Verifica se a string eh vazia
         throw DominioException("Por favor, digite algum valor para continuar.");
     }
-    if(valor.length() > 7){ // verifica se o tamanho da string eh maior que 7, o que indica que o valor ultrapassou o limite
+    if(valor.length() > 9){ // verifica se o tamanho da string eh maior que 9, o que indica que o valor ultrapassou o limite
         throw DominioException("Valor invalida! O valor que voce digitou esta fora da faixa de valores.");
     }
    
-    if(!std::all_of(valor.begin(), valor.end(), ::isdigit)){ // Verifica se todos os digitos sao numeros
+    if(std::all_of(valor.begin(), valor.end(), ::isalpha)){ // Verifica se todos os digitos sao numeros
         throw DominioException("O valor deve conter apenas numeros.");
     }
       double valorDef = std::stod(valor); // Converte o valor de string para um double e armazena na variavel valorDef
@@ -43,4 +43,3 @@ void Dinheiro::setValor(std::string& valor) {
     if (validarValor(valor_T)) {} // Essa condicao nao faz nada, mas a validacao acontece
     this->valor = valor_T;   // Atribui valor arredondado
 }
-
