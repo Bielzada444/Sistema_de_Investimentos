@@ -7,6 +7,7 @@
 
 #include <string>
 #include "DominioException.hpp"
+
 class Nome{
     private:
         static const int MAXIMO = 21;                                   //limite de caracters do nome: 20 + 1 (do '\0')
