@@ -2,7 +2,7 @@
 // Criado por Henrique em 10/04/2025
 //  Matricula 241020840
 
-#include "Quantidade.h"
+#include "Quantidade.hpp"
 #include <string>
 #include <algorithm>
 
