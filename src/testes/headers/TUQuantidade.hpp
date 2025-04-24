@@ -1,9 +1,9 @@
 //
 // Feito por Henrique em 22/04/2025
 // Matricula: 241020840
-#ifndef TUQUANTIDADE_H
-#define TUQUANTIDADE_H
-#include "Quantidade.h"
+#ifndef TUQUANTIDADE_HPP
+#define TUQUANTIDADE_HPP
+#include "Quantidade.hpp"
 #include <string>
 
 class TUQuantidade{
