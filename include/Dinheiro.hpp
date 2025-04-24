@@ -2,8 +2,8 @@
 // Criado por Henrique em 04/04/2025.
 // Matricula: 241020840
 
-#ifndef DINHEIRO_H
-#define DINHEIRO_H
+#ifndef DINHEIRO_HPP
+#define DINHEIRO_HPP
 #include "DominioException.hpp"
 
 class Dinheiro {
@@ -20,4 +20,4 @@ public:
 		return valor;
 	}
 };
-#endif //DINHEIRO_H
+#endif //DINHEIRO_HPP
