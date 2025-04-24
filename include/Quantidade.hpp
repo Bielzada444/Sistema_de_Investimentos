@@ -2,15 +2,10 @@
 // Criado por Henrique em 10/04/2025
 //  Matricula 241020840
 
-#ifndef QUANTIDADE_H
-#define QUANTIDADE_H
+#ifndef QUANTIDADE_HPP
+#define QUANTIDADE_HPP
 #include <stdexcept> // Biblioteca onde esta contida a  calsse base runtime_error 
- 
- class DominioException : public std::runtime_error { // Classe publica de tratamento de erros
-     public:
-         explicit DominioException(const std::string& mensagem) // Construtor da classe que recebe as mensagens de erro
-         : std::runtime_error(mensagem) {} // Passa a mensagem para o construtor da classe base
- };
+#include "DominioException.hpp"
 class Quantidade{
         private:
         int quantidade; // Armazena o valor quantidade como um inteiro
