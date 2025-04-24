@@ -1,9 +1,9 @@
 //
 // Criado por Henrique em 22/04/2025.
 // Matricula: 241020840
-#ifndef TUDINHEIRO_H
-#define TUDINHEIRO_H
-#include "Dinheiro.h"
+#ifndef TUDINHEIRO_HPP
+#define TUDINHEIRO_HPP
+#include "Dinheiro.hpp"
 #include <string>
 
 class TUDinheiro {
@@ -25,4 +25,4 @@ public:
 
 };
 
-#endif //TUDINHEIRO_H
+#endif //TUDINHEIRO_HPP
