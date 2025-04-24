@@ -1,7 +1,7 @@
 //
 // Criado por Henrique em 22/04/2025.
 // Matricula: 241020840
-#include "TUDinheiro.h"
+#include "TUDinheiro.hpp"
 
  std::string TUDinheiro::DINHEIRO_VALIDO = "20863.67"; // Inicializacao de Dinheiro que passa em todos os testes
  std::string TUDinheiro::DINHEIRO_INVALIDO = "100000000"; // Inicializacao de Dinheiro que falha na validacao
