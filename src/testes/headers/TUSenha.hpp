@@ -4,7 +4,7 @@
 
 #ifndef TUSENHA_HPP
 #define TUSENHA_HPP
-#include "Senha.h" //inclui o header da classe Senha que vai ser testada
+#include "Senha.hpp" //inclui o header da classe Senha que vai ser testada
 #include <string> //inclui header string padrao do C++
 
 class TUSenha { //declaracao da classe
