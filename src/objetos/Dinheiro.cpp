@@ -2,7 +2,7 @@
 // Criado por  Henrique em 05/04/2025.
 // Matricula: 241020840
 
-#include "Dinheiro.h"
+#include "Dinheiro.hpp"
 
 #include <cmath>
 #include <stdexcept>
