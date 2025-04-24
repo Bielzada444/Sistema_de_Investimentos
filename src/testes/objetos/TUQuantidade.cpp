@@ -1,7 +1,7 @@
 //
 // Feito por Henrique em 22/04/2025
 // Matricula 241020840
-#include "TUQuantidade.h"
+#include "TUQuantidade.hpp"
 
  std::string TUQuantidade::QUANTIDADE_VALIDA = "150000"; // inicializacao de Quantidade que passa em todos os testes
  std::string TUQuantidade::QUANTIDADE_INVALIDA = "111111111";// inicializacao de Quantidade que falha na validacao
