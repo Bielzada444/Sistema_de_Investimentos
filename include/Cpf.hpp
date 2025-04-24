@@ -3,18 +3,13 @@
 // Matricula: 241038942
 
 #ifndef CPF_HPP
- #define CPF_HPP
+#define CPF_HPP
  
- #include <string>
- #include <stdexcept> // biblioteca onde esta contida a  calsse base runtime_error 
+#include <string>
+#include <stdexcept> // biblioteca onde esta contida a  calsse base runtime_error 
+#include "DominioException.hpp"
  
- class DominioException : public std::runtime_error { // classe publica de tratamento de erros
-     public:
-         explicit DominioException(const std::string& mensagem) // construtor da classe que recebe as mensagens de erro
-         : std::runtime_error(mensagem) {} // passa a mensagem para o construtor da classe base
- };
- 
- class CPF {
+class CPF {
  private:
  	std::string numeroCpf;
  	bool validar(const std::string& cpfInserido);
@@ -24,7 +19,7 @@
  	inline std::string getCPF() const { 
  	    return numeroCpf; 
  	} // "retorna" uma copia do atributo numeroCpf
- };
+};
  
  
- #endif
+#endif
