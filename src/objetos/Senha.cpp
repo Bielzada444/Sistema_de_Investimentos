@@ -2,7 +2,7 @@
 // Criado por Nyvea em 11/04/2025.
 // Matricula: 241040207
 
-#include "Senha.h"
+#include "Senha.hpp"
 #include <string>
 #include <cctype>
 
