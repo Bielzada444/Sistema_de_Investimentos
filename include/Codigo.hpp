@@ -12,7 +12,7 @@
 class Codigo {
     private:
         std::string numeroCodigo;
-        bool validarCodigo(const std::string& codigoInserido);
+        void validarCodigo(const std::string& codigoInserido);
     public:
         void setCodigo(const std::string& novoCodigo); // "escreve/muda" o conteudo do atributo numeroCodigo
  	   inline std::string getCodigo() const { 
