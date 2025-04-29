@@ -33,11 +33,9 @@ bool Nome::validaNome(std::string nome){
     return true;
 }
 
-bool Nome::setNome(std::string nome){
+void Nome::setNome(std::string nome){
     if(!Nome::validaNome(nome)){
     }
     
     this->nome = nome;
-
-    return true;
 }
