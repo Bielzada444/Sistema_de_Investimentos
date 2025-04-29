@@ -6,7 +6,7 @@
 #include <string>
 #include <algorithm>
 
-bool Codigo::validarCodigo(const std::string& codigoInserido) {
+void Codigo::validarCodigo(const std::string& codigoInserido) {
 	
 	if(codigoInserido.empty()){ //verificacao se foi digitado algo
 	    throw DominioException("Por favor, digite algum valor para continuar");
@@ -24,12 +24,11 @@ bool Codigo::validarCodigo(const std::string& codigoInserido) {
         throw DominioException("O Codigo deve conter apenas digitos!");
     }
     
-	return true;
 
 }
 
 void Codigo::setCodigo(const std::string& numeroCodigo) {
-	if(!validarCodigo(numeroCodigo)){
-	}
+	validarCodigo(numeroCodigo);
+	
 	this->numeroCodigo = numeroCodigo;
 }
