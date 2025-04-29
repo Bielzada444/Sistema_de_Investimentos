@@ -16,7 +16,7 @@ class Senha{
         bool validaSenha(std::string senha);          //retorna true se a senha for valida e false se nao for
 
     public:
-        bool setSenha(std::string senha);             //inicializa a senha de acordo input
+        void setSenha(std::string senha);             //inicializa a senha de acordo input
         std::string getSenha() const;           //retorna a string senha
 };
 
