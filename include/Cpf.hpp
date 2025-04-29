@@ -12,8 +12,8 @@
 class CPF {
  private:
  	std::string numeroCpf;
- 	bool validar(const std::string& cpfInserido);
- 	bool validarDigitosVerificadores(const std::string& cpf);
+ 	void validar(const std::string& cpfInserido);
+ 	void validarDigitosVerificadores(const std::string& cpf);
  public:
  	void setCPF(const std::string& novoCpf); // "escreve/muda" o conteudo do atributo numeroCpf
  	inline std::string getCPF() const { 
