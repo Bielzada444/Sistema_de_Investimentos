@@ -52,11 +52,9 @@ bool Senha::validaSenha(std::string senha){
     return true;                                                                        //a senha cumpre todos os requisitos e eh valida
 }
 
-bool Senha::setSenha(std::string senha){
+void Senha::setSenha(std::string senha){
     if(!Senha::validaSenha(senha)){                                                     //se a senha for invalida, retorna falso
     }
 
     this->senha = senha;                                                                //se a senha for valida, atribui a string a variavel do objeto senha
-
-    return true;
 }
