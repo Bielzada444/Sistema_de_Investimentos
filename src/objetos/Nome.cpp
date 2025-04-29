@@ -6,7 +6,7 @@
 #include <string>
 #include <cctype>
 
-bool Nome::validaNome(std::string nome){
+void Nome::validaNome(std::string nome){
     int i;
 
     if(nome.length() > MAXIMO){                          //confere se o nome ultrapassa o limite de caracteres
@@ -29,13 +29,10 @@ bool Nome::validaNome(std::string nome){
     if(!isdigit(nome[i]) && !isupper(nome[i]) && !islower(nome[i]) && nome[i] != ' '){           //confere o ultimo digito, ja que na iteracao o ultimo digito nao eh conferido
             throw DominioException("Nome invalido! O nome deve conter apenas letras ou numeros.");
     }
-
-    return true;
 }
 
 void Nome::setNome(std::string nome){
-    if(!Nome::validaNome(nome)){
-    }
-    
+    Nome::validaNome(nome);
+
     this->nome = nome;
 }
