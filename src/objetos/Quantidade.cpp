@@ -23,12 +23,11 @@ int Quantidade::stringParaInteiro(std::string& quantidade){
       return valor; 
 }
 //Implementacao do metodo para validar a quantidade
-bool Quantidade::validarQuantidade(int& quantidade){
+void Quantidade::validarQuantidade(int& quantidade){
     if(quantidade < 0 || quantidade > 1000000){ // Confere se o valor digitado esta dentro da faixa permitida
         throw DominioException("Quantiade invalida! O valor digitado deve estar entre 0 e 1,000,000");
     } 
     
-    return true;
 }
  // Metodo para receber o input do usuario
 void Quantidade::setQuantidade(std::string& quantidade){
