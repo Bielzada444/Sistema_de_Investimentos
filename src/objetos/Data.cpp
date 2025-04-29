@@ -10,7 +10,7 @@
 
 using namespace std::chrono;
 
-bool Data::validarData(const year_month_day& data) {
+void Data::validarData(const year_month_day& data) {
     // Verifica se o ano é negativo
     if (static_cast<int>(data.year()) < 0) {
         throw DominioException("Ano negativo nao e aceito.");
@@ -21,7 +21,6 @@ bool Data::validarData(const year_month_day& data) {
         throw DominioException("Data invalida, verifique as informacoes digitadas.");
     }
     
-    return true;
 }
 
 year_month_day Data::stringParaData(const std::string& dataString) {
@@ -41,15 +40,15 @@ year_month_day Data::stringParaData(const std::string& dataString) {
 
 void Data::setData(const std::string& dataString) {
     year_month_day novaData = stringParaData(dataString);
-    if (validarData(novaData)) {
+        validarData(novaData);
         valor = novaData;
-    }
+    
 }
 
 void Data::setData(const year_month_day& data) {
-    if (validarData(data)) {
+    validarData(data);
         valor = data;
-    }
+    
 }
 
 std::string Data::getData() const {
