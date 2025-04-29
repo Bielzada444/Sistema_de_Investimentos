@@ -15,7 +15,7 @@ class Nome{
         bool validaNome(std::string nome);                                   //retorna true se o nome eh válido e false se nao for
 
     public:
-        bool setNome(std::string nome);                                      //inicializa o nome se for valido
+        void setNome(std::string nome);                                      //inicializa o nome se for valido
         std::string getNome() const;                                    //retorna o "nome" do objeto
 };
 
