@@ -18,7 +18,7 @@ private:
      * @return true se a data é válida
      * @throws std::invalid_argument se a data for inválida
      */
-    bool validarData(const std::chrono::year_month_day& data);
+    void validarData(const std::chrono::year_month_day& data);
     
     /**
      * Converte uma string no formato AAAAMMDD para year_month_day
