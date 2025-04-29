@@ -6,14 +6,14 @@
 #include <string>
 #include <cctype>
 
-bool Senha::validaSenha(std::string senha){
+void Senha::validaSenha(std::string senha){
     int i, j;
     bool numero, maiuscula, minuscula, caractereEspecial;                               //variaveis para conferir se a senha inserida possui todos os caracteres necessarios
     numero = maiuscula = minuscula = caractereEspecial = false;                         //inicializacao das variaveis como falsas
 
     if((senha.length() > CARACTERES)||(senha.length() < CARACTERES)){                   //confere se a senha possui 6 caracteres
         throw DominioException("Tamanho invalido! Senha deve conter exatamente 6 caracteres");
-    }       
+    }
 
     for(i = 0; i < CARACTERES; i++){                                                    //iteracoes para conferir caracter por caracter
         if(isupper(senha[i])){                                                          //se ha letra maiucula, a variavel eh verdadeira
@@ -39,7 +39,7 @@ bool Senha::validaSenha(std::string senha){
         }
     }
 
-    if(!maiuscula){                      
+    if(!maiuscula){
         throw DominioException("Formato invalido! Senha nao possui letra maiuscula");
     } else if(!minuscula){
         throw DominioException("Formato invalido! Senha nao possui letra minuscula");
@@ -47,14 +47,11 @@ bool Senha::validaSenha(std::string senha){
         throw DominioException("Formato invalido! Senha nao possui numero");
     } else if(!caractereEspecial){
         throw DominioException("Formato invalido! Senha nao possui caracter especial");
-    }
-
-    return true;                                                                        //a senha cumpre todos os requisitos e eh valida
+    }                                                                    //a senha cumpre todos os requisitos e eh valida
 }
 
 void Senha::setSenha(std::string senha){
-    if(!Senha::validaSenha(senha)){                                                     //se a senha for invalida, retorna falso
-    }
+    Senha::validaSenha(senha);                                                            //verifica a senha
 
     this->senha = senha;                                                                //se a senha for valida, atribui a string a variavel do objeto senha
 }
