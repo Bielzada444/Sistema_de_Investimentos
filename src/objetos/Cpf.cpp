@@ -6,7 +6,7 @@
 #include <string>
 #include <algorithm>
 
-bool CPF::validar(const std::string& cpfInserido) {
+void CPF::validar(const std::string& cpfInserido) {
 	if(cpfInserido.empty()){
 	    throw DominioException("Por favor, digite algum valor para continuar");
 	}
@@ -35,7 +35,6 @@ bool CPF::validar(const std::string& cpfInserido) {
         throw DominioException("Digitos verificadores do CPF invalidos");
     }
     
-	return true;
 
 }
 
@@ -65,7 +64,7 @@ bool CPF::validarDigitosVerificadores(const std::string& cpf) {
 }
 
 void CPF::setCPF(const std::string& numeroCpf) {
-	if(!validar(numeroCpf)){
-	}
+	validar(numeroCpf);
+	
 	this->numeroCpf = numeroCpf;
 }
