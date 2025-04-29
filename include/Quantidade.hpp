@@ -10,7 +10,7 @@ class Quantidade{
         private:
         int quantidade; // Armazena o valor quantidade como um inteiro
         
-        bool validarQuantidade(int &quantidade); // Metodo para conferir se a quantidade digitada eh valida
+        void validarQuantidade(int &quantidade); // Metodo para conferir se a quantidade digitada eh valida
         
         int stringParaInteiro(std::string &quantiade); // Metodo para converter o input recebido como string para ser armazenado como inteiro
         
