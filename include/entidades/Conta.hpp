@@ -11,20 +11,20 @@ class Conta{
         Senha senha;
     
     public:
-        void  const setCpf(CPF& cpf);
-        void const setNome(Nome& nome);
-        void const setSenha(Senha& senha);
+        void setCpf(const CPF& novoCpf);
+        void setNome(const Nome& novoNome);
+        void setSenha(const Senha& novaSenha);
         
-        inline CPF getCpf() const {
-            return cpf.getCpf();
+        CPF getCpf() const {
+            return cpf;
         }
-        inline Nome getNome() const {
+        Nome getNome() const{
             return nome;
         }
-        inline Senha getSenha() const{
-            return senha
+        Senha getSenha() const{
+            return senha;
         }
-};
 
+};
 
 #endif //CONTA_HPP
