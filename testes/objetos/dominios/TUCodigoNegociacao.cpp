@@ -9,8 +9,8 @@
 #include "TUCodigoNegociacao.hpp"
 
 // Valores pré-definidos para os testes
-const std::string TUCodigoNegociacao::VALOR_VALIDO = "TEST4";  // Código válido (5 caracteres alfanuméricos)
-const std::string TUCodigoNegociacao::VALOR_INVALIDO = "TEST#4"; // Código inválido (contém caractere especial)
+const std::string TUCodigoNegociacao::CODIGO_NEGOCIACAO_VALIDO = "TEST4";  // Código válido (5 caracteres alfanuméricos)
+const std::string TUCodigoNegociacao::CODIGO_NEGOCIACAO_INVALIDO = "TEST#4"; // Código inválido (contém caractere especial)
 
 /**
  * @brief Prepara o ambiente antes de cada teste.
@@ -18,9 +18,9 @@ const std::string TUCodigoNegociacao::VALOR_INVALIDO = "TEST#4"; // Código inv�
  * - Define o estado inicial como SUCESSO.
 */
 
-void TUCodigoNegociacao::setUp() {
+void TUCodigoNegociacao::setUpCodigoNegociacao() {
     codigoNegociacao = new CodigoNegociacao();  // Cria nova instância para teste
-    estado = SUCESSO;                           // Inicializa como sucesso
+    estadoCodigoNegociacao = SUCESSO;                           // Inicializa como sucesso
 }
 
 /**
@@ -28,7 +28,7 @@ void TUCodigoNegociacao::setUp() {
  * - Deleta a instância de codigoNegociacao.
 */
 
-void TUCodigoNegociacao::tearDown() {
+void TUCodigoNegociacao::tearDownCodigoNegociacao() {
     delete codigoNegociacao; // Libera memória alocada
 }
 
@@ -38,15 +38,15 @@ void TUCodigoNegociacao::tearDown() {
  * - Verifica se o valor foi armazenado corretamente.
 */
 
-void TUCodigoNegociacao::testarCenarioValido() {
+void TUCodigoNegociacao::testarCenarioValidoCodigoNegociacao() {
     try {
-        codigoNegociacao->setCodigo(VALOR_VALIDO);
+        codigoNegociacao->setCodigo(CODIGO_NEGOCIACAO_VALIDO);
         // Verifica se o valor foi armazenado corretamente
-        if (codigoNegociacao->getCodigo() != VALOR_VALIDO) {
-            estado = FALHA;
+        if (codigoNegociacao->getCodigo() != CODIGO_NEGOCIACAO_VALIDO) {
+            estadoCodigoNegociacao = FALHA;
         }
     } catch (DominioException &e) {
-        estado = FALHA; // Falha se lançar exceção com valor válido
+        estadoCodigoNegociacao = FALHA; // Falha se lançar exceção com valor válido
     }
 }
 
@@ -56,14 +56,14 @@ void TUCodigoNegociacao::testarCenarioValido() {
  * - Verifica se o valor inválido não foi armazenado.
 */
 
-void TUCodigoNegociacao::testarCenarioInvalido() {
+void TUCodigoNegociacao::testarCenarioInvalidoCodigoNegociacao() {
     try {
-        codigoNegociacao->setCodigo(VALOR_INVALIDO);
-        estado = FALHA; // Falha se aceitar valor inválido
+        codigoNegociacao->setCodigo(CODIGO_NEGOCIACAO_INVALIDO);
+        estadoCodigoNegociacao = FALHA; // Falha se aceitar valor inválido
     } catch (DominioException &e) {
         // Verifica se valor inválido não foi armazenado
-        if (codigoNegociacao->getCodigo() == VALOR_INVALIDO) {
-            estado = FALHA;
+        if (codigoNegociacao->getCodigo() == CODIGO_NEGOCIACAO_INVALIDO) {
+            estadoCodigoNegociacao = FALHA;
         }
     }
 }
@@ -74,9 +74,9 @@ void TUCodigoNegociacao::testarCenarioInvalido() {
  */
 
 int TUCodigoNegociacao::runCodigoNegociacao() {
-    setUp();              // Prepara ambiente de teste
-    testarCenarioValido();   // Executa teste válido
-    testarCenarioInvalido(); // Executa teste inválido
-    tearDown();           // Limpa recursos
-    return estado;        // Retorna resultado dos testes
+    setUpCodigoNegociacao();                 // Prepara ambiente de teste
+    testarCenarioValidoCodigoNegociacao();   // Executa teste válido
+    testarCenarioInvalidoCodigoNegociacao(); // Executa teste inválido
+    tearDownCodigoNegociacao();              // Limpa recursos
+    return estadoCodigoNegociacao;        // Retorna resultado dos testes
 }

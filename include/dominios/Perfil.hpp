@@ -10,7 +10,6 @@
 #define PERFIL_HPP
 
 #include <string>
-#include <stdexcept>
 #include "DominioException.hpp"
 
 /**
@@ -33,7 +32,7 @@ class Perfil {
         * @param tipoPerfil String a ser validada.
         * @return true se o perfil for válido, false caso contrário.
         */
-        bool validar(const std::string& tipoPerfil);
+        void validarPerfil(const std::string& tipoPerfil);
 
     public:
         /**

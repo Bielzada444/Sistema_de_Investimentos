@@ -16,30 +16,30 @@
 
 class TUCodigoNegociacao {
   private:
-        const static std::string VALOR_VALIDO;   ///< Código válido padrão ("TEST4")
-        const static std::string VALOR_INVALIDO; ///< Código inválido padrão ("TEST#4")
+        const static std::string CODIGO_NEGOCIACAO_VALIDO;   ///< Código válido padrão ("TEST4")
+        const static std::string CODIGO_NEGOCIACAO_INVALIDO; ///< Código inválido padrão ("TEST#4")
         CodigoNegociacao* codigoNegociacao;      ///< Instância sob teste
-        int estado;                              ///< Estado do teste (SUCESSO/FALHA)
+        int estadoCodigoNegociacao;              ///< Estado do teste (SUCESSO/FALHA)
 
         /**
         * @brief Configura o ambiente de teste.
         */
-        void setUp();
+        void setUpCodigoNegociacao();
 
         /**
         * @brief Libera recursos após o teste.
         */
-        void tearDown();
+        void tearDownCodigoNegociacao();
 
         /**
         * @brief Testa cenário com código válido.
         */
-        void testarCenarioValido();
+        void testarCenarioValidoCodigoNegociacao();
 
         /**
         * @brief Testa cenário com código inválido.
         */
-        void testarCenarioInvalido();
+        void testarCenarioInvalidoCodigoNegociacao();
 
     public:
         const static int SUCESSO = 0; ///< Código de sucesso

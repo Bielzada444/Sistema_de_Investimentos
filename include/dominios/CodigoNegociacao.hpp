@@ -11,7 +11,6 @@
 
 #include<iostream>
 #include<string>
-#include <stdexcept> // biblioteca onde esta contida a  classe base runtime_error
 #include "DominioException.hpp"
 
 /**
@@ -27,7 +26,7 @@ class CodigoNegociacao {
 
     private:
         std::string codigo;
-        bool validarCodigo(const std::string& codigo);
+        void validarCodigo(const std::string& codigo);
 
     public:
 

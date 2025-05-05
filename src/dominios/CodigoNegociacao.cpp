@@ -8,7 +8,6 @@
 
 #include "CodigoNegociacao.hpp"
 #include<ctype.h>
-#include<stdexcept>
 
 /**
  * @brief Valida se um código de negociação atende aos requisitos.
@@ -22,7 +21,7 @@
  * @note Este método é privado e chamado automaticamente por `setCodigo()`.
  */
 
-bool CodigoNegociacao::validarCodigo(const std::string& codigo) {
+void CodigoNegociacao::validarCodigo(const std::string& codigo) {
     if(codigo.empty() || codigo.length() > 12) { // Verifica se a string ta vazia ou tem mais de 12 caracteres
         throw DominioException("Tamanho do codigo invalido!");
     }
@@ -31,7 +30,6 @@ bool CodigoNegociacao::validarCodigo(const std::string& codigo) {
             throw DominioException("Caractere invalido");
         }
     }
-    return true;
 }
 
 /**
@@ -43,7 +41,6 @@ bool CodigoNegociacao::validarCodigo(const std::string& codigo) {
  */
 
 void CodigoNegociacao::setCodigo(const std::string& codigo) {
-    if(validarCodigo(codigo)){
-    }
+    validarCodigo(codigo);
     this->codigo = codigo;
 }

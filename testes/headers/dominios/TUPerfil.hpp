@@ -19,27 +19,27 @@
 
 class TUPerfil {
   private:
-        const static std::string VALOR_VALIDO;   ///< Valor válido padrão ("Conservador").
-        const static std::string VALOR_INVALIDO; ///< Valor inválido padrão ("Agresssivo").
-        Perfil* perfil;          ///< Instância sob teste.
-        int estado;              ///< Estado do teste (SUCESSO/FALHA).
+        const static std::string PERFIL_VALIDO;   ///< Valor válido padrão ("Conservador").
+        const static std::string PERFIL_INVALIDO; ///< Valor inválido padrão ("Agresssivo").
+        Perfil* perfil;                          ///< Instância sob teste.
+        int estadoPerfil;                        ///< Estado do teste (SUCESSO/FALHA).
 
         /**
         * @brief Configura o ambiente de teste.
         */
-        void setUp();
+        void setUpPerfil();
         /**
         * @brief Libera recursos após o teste.
         */
-        void tearDown();
+        void tearDownPerfil();
         /**
         * @brief Testa cenário com perfil válido.
         */
-        void testarCenarioValido();
+        void testarCenarioValidoPerfil();
         /**
         * @brief Testa cenário com perfil inválido.
         */
-        void testarCenarioInvalido();
+        void testarCenarioInvalidoPerfil();
 
     public:
         const static int SUCESSO = 0; ///< Código de sucesso.

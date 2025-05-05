@@ -9,8 +9,8 @@
 #include "TUPerfil.hpp"
 
 // Valores pre-definidos para os testes
-const std::string TUPerfil::VALOR_VALIDO = "Conservador";
-const std::string TUPerfil::VALOR_INVALIDO = "Agresssivo";
+const std::string TUPerfil::PERFIL_VALIDO = "Conservador";
+const std::string TUPerfil::PERFIL_INVALIDO = "Agresssivo";
 
 /**
  * @brief Prepara o ambiente antes de cada teste.
@@ -18,9 +18,9 @@ const std::string TUPerfil::VALOR_INVALIDO = "Agresssivo";
  * - Define o estado inicial como SUCESSO.
 */
 
-void TUPerfil::setUp() {
+void TUPerfil::setUpPerfil() {
     perfil = new Perfil();
-    estado = SUCESSO;
+    estadoPerfil = SUCESSO;
 }
 
 /**
@@ -28,7 +28,7 @@ void TUPerfil::setUp() {
  * - Deleta a instância de Perfil.
 */
 
-void TUPerfil::tearDown() {
+void TUPerfil::tearDownPerfil() {
     delete perfil; // Libera memoria alocada
 }
 
@@ -38,14 +38,14 @@ void TUPerfil::tearDown() {
  * - Verifica se o valor foi armazenado corretamente.
 */
 
-void TUPerfil::testarCenarioValido() {
+void TUPerfil::testarCenarioValidoPerfil() {
     try {
-        perfil->setPerfil(VALOR_VALIDO);
-        if (perfil->getPerfil() != VALOR_VALIDO) {
-            estado = FALHA;
+        perfil->setPerfil(PERFIL_VALIDO);
+        if (perfil->getPerfil() != PERFIL_VALIDO) {
+            estadoPerfil = FALHA;
         }
     } catch (DominioException &e) {
-        estado = FALHA;
+        estadoPerfil = FALHA;
     }
 }
 
@@ -55,13 +55,13 @@ void TUPerfil::testarCenarioValido() {
  * - Verifica se o valor inválido não foi armazenado.
 */
 
-void TUPerfil::testarCenarioInvalido() {
+void TUPerfil::testarCenarioInvalidoPerfil() {
     try {
-        perfil->setPerfil(VALOR_INVALIDO);
-        estado = FALHA;
+        perfil->setPerfil(PERFIL_INVALIDO);
+        estadoPerfil = FALHA;
     } catch (DominioException &e) {
-        if (perfil->getPerfil() == VALOR_INVALIDO) {
-            estado = FALHA;
+        if (perfil->getPerfil() == PERFIL_INVALIDO) {
+            estadoPerfil = FALHA;
         }
     }
 }
@@ -72,9 +72,9 @@ void TUPerfil::testarCenarioInvalido() {
  */
 
 int TUPerfil::runPerfil() {
-    setUp();              // Prepara ambiente de teste
-    testarCenarioValido();   // Executa teste válido
-    testarCenarioInvalido(); // Executa teste inválido
-    tearDown();           // Limpa recursos
-    return estado;        // Retorna resultado dos testes
+    setUpPerfil();              // Prepara ambiente de teste
+    testarCenarioValidoPerfil();   // Executa teste válido
+    testarCenarioInvalidoPerfil(); // Executa teste inválido
+    tearDownPerfil();           // Limpa recursos
+    return estadoPerfil;        // Retorna resultado dos testes
 }
