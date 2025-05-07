@@ -1,7 +1,7 @@
 #ifndef CONTA_HPP
 #define CONTA_HPP
 
-#include "dominios.hpp"
+#include "Dominios.hpp"
 
 
 class Conta{
