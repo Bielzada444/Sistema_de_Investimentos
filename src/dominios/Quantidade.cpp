@@ -30,7 +30,7 @@ void Quantidade::validarQuantidade(int& quantidade){
     
 }
  // Metodo para receber o input do usuario
-void Quantidade::setQuantidade(std::string& quantidade){
+void Quantidade::setQuantidade(std::string &quantidade){
          int valorInteiro = stringParaInteiro(quantidade); // Chamamento do metodo e atribuicao do valor retornado para uma variavel do tipo int
         
         validarQuantidade(valorInteiro);// Chamamento da funcao que valida a quantidade recebida pelo input
