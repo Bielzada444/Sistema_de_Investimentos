@@ -22,7 +22,7 @@ public:
 	const static int SUCESSO = 0;
 	const static int FALHA = -1;
 	int runOrdem();
-};
+
 };
 
 #endif // TUORDEM_HPP
