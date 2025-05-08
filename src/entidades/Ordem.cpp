@@ -1,19 +1,19 @@
 #include "Ordem.hpp"
 
-void setCodigo(const Codigo& novoCodigo) {
+void Ordem::setCodigo(const Codigo& novoCodigo) {
 	this->codigo = novoCodigo;
 }
 
-void setCodigoNegociacao(const CodigoNegociacao& novoCodigoNegociacao) {
+void Ordem::setCodigoNegociacao(const CodigoNegociacao& novoCodigoNegociacao) {
 	this->codigoNegociacao = novoCodigoNegociacao;
 }
 
-void setData(const Data& novaData) {
+void Ordem::setData(const Data& novaData) {
 	this->data = novaData;
 }
-void setDinheiro(const Dinheiro& novoPreco) {
+void Ordem::setDinheiro(const Dinheiro& novoPreco) {
 	this->preco = novoPreco;
 }
-void setQuantidade(const Quantidade& novaQuantidade) {
+void Ordem::setQuantidade(const Quantidade& novaQuantidade) {
 	this->quantidade = novaQuantidade;
 }
