@@ -36,13 +36,13 @@ class CodigoNegociacao {
         * @throw DominioException Se o código for inválido.
         */
 
-        void setCodigo(const std::string& codigo);
+        void setCodigoNegociacao(const std::string& codigo);
 
         /**
         * @brief Retorna o código armazenado (garantidamente válido ou string vazia).
         */
 
-        std::string getCodigo() const {
+        std::string getCodigoNegociacao() const {
             return codigo;
         }
 };
