@@ -40,7 +40,7 @@ void CodigoNegociacao::validarCodigo(const std::string& codigo) {
  *
  */
 
-void CodigoNegociacao::setCodigo(const std::string& codigo) {
+void CodigoNegociacao::setCodigoNegociacao(const std::string& codigo) {
     validarCodigo(codigo);
     this->codigo = codigo;
 }
