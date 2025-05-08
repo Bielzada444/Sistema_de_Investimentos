@@ -36,7 +36,7 @@ void Dinheiro::validarValor(const double &valor) {
 
 }
 
-void Dinheiro::setValor(std::string& valor) {
+void Dinheiro::setDinheiro(std::string& valor) {
     double valor_T = stringParaDouble(valor);
     valor_T = arrendodar(valor_T);
     validarValor(valor_T);
