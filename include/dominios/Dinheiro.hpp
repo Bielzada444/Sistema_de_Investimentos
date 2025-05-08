@@ -16,8 +16,8 @@ private:
 	double arrendodar(const double& valor); // Metodo que arrendonda o valor para duas casas decimais depois do ponto
 	double stringParaDouble(std::string& valor);// Metodo para converter o input recebido como string para ser armazenado como double
 public:
-	void setValor(std::string& valor); // Recebe o input do usuario
-	inline double getValor()  { // Retorna o valor armazenado do atributo
+	void setDinheiro(std::string& valor); // Recebe o input do usuario
+	inline double getDinheiro()  { // Retorna o valor armazenado do atributo
 		return valor;
 	}
 };
