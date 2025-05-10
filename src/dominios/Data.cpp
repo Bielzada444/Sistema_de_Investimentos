@@ -4,7 +4,6 @@
 // Matricula: 241020840
 
 #include "Data.hpp"
-#include "Data.hpp"
 #include <sstream>
 #include <iomanip>
 
