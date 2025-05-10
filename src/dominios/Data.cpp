@@ -9,9 +9,12 @@
 
 //Metodo de validacao
 void Data::validarData(int d, int m, int a) const {
-    if (m < 1 || m > 12) throw DominioException("Mes invalido.");
-    if (d < 1 || d > 31) throw DominioException("Dia invalido.");
-
+    if (m < 1 || m > 12) {
+        throw DominioException("Mes invalido.");
+    }
+    if (d < 1 || d > 31){
+        throw DominioException("Dia invalido.");
+    }
     if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30) {
         throw DominioException("Dia invalido para o mes.");
     }
