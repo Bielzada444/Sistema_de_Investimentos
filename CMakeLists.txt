@@ -1,0 +1,96 @@
+cmake_minimum_required(VERSION 3.30)
+project(Sistema_de_Investimentos)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(Sistema_de_Investimentos/Dominios)
+include_directories(Sistema_de_Investimentos/Entidades)
+include_directories(Sistema_de_Investimentos/source_lib/Dominios)
+include_directories(Sistema_de_Investimentos/source_lib/Entidades)
+include_directories(Sistema_de_Investimentos/source_lib/Teste/Dominios)
+include_directories(Sistema_de_Investimentos/source_lib/Teste/Entidades)
+include_directories(Sistema_de_Investimentos/Testes)
+include_directories(Sistema_de_Investimentos/Testes/Dominios)
+include_directories(Sistema_de_Investimentos/Testes/Entidades)
+
+add_executable(Sistema_de_Investimentos
+    Sistema_de_Investimentos/Dominios/Codigo.hpp
+    Sistema_de_Investimentos/Dominios/CodigoNegociacao.hpp
+    Sistema_de_Investimentos/Dominios/Cpf.hpp
+    Sistema_de_Investimentos/Dominios/Data.hpp
+    Sistema_de_Investimentos/Dominios/Dinheiro.hpp
+    Sistema_de_Investimentos/Dominios/DominioException.hpp
+    Sistema_de_Investimentos/Dominios/Dominios.hpp
+    Sistema_de_Investimentos/Dominios/Nome.hpp
+    Sistema_de_Investimentos/Dominios/Perfil.hpp
+    Sistema_de_Investimentos/Dominios/Quantidade.hpp
+    Sistema_de_Investimentos/Dominios/Senha.hpp
+    Sistema_de_Investimentos/Entidades/Carteira.hpp
+    Sistema_de_Investimentos/Entidades/Conta.hpp
+    Sistema_de_Investimentos/Entidades/Ordem.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/Codigo.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/Codigo.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/CodigoNegociacao.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/CodigoNegociacao.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/Cpf.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/Cpf.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/Data.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/Data.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/Dinheiro.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/Dinheiro.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/DominioException.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/Dominios.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/Dominios.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/Nome.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/Nome.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/Perfil.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/Perfil.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/Quantidade.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/Quantidade.hpp
+    Sistema_de_Investimentos/source_lib/Dominios/Senha.cpp
+    Sistema_de_Investimentos/source_lib/Dominios/Senha.hpp
+    Sistema_de_Investimentos/source_lib/Entidades/Carteira.cpp
+    Sistema_de_Investimentos/source_lib/Entidades/Carteira.hpp
+    Sistema_de_Investimentos/source_lib/Entidades/Conta.cpp
+    Sistema_de_Investimentos/source_lib/Entidades/Conta.hpp
+    Sistema_de_Investimentos/source_lib/Entidades/Ordem.cpp
+    Sistema_de_Investimentos/source_lib/Entidades/Ordem.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUCodigo.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUCodigo.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUCodigoNegociacao.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUCodigoNegociacao.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUCpf.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUCpf.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUData.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUData.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUDinheiro.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUDinheiro.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUNome.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUNome.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUPerfil.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUPerfil.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUQuantidade.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUQuantidade.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUSenha.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Dominios/TUSenha.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Entidades/TUCarteira.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Entidades/TUCarteira.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Entidades/TUConta.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Entidades/TUConta.hpp
+    Sistema_de_Investimentos/source_lib/Teste/Entidades/TUOrdem.cpp
+    Sistema_de_Investimentos/source_lib/Teste/Entidades/TUOrdem.hpp
+    Sistema_de_Investimentos/src/main.cpp
+    Sistema_de_Investimentos/Testes/Dominios/TUCodigo.hpp
+    Sistema_de_Investimentos/Testes/Dominios/TUCodigoNegociacao.hpp
+    Sistema_de_Investimentos/Testes/Dominios/TUCpf.hpp
+    Sistema_de_Investimentos/Testes/Dominios/TUData.hpp
+    Sistema_de_Investimentos/Testes/Dominios/TUDinheiro.hpp
+    Sistema_de_Investimentos/Testes/Dominios/TUNome.hpp
+    Sistema_de_Investimentos/Testes/Dominios/TUPerfil.hpp
+    Sistema_de_Investimentos/Testes/Dominios/TUQuantidade.hpp
+    Sistema_de_Investimentos/Testes/Dominios/TUSenha.hpp
+    Sistema_de_Investimentos/Testes/Entidades/TUCarteira.hpp
+    Sistema_de_Investimentos/Testes/Entidades/TUConta.hpp
+    Sistema_de_Investimentos/Testes/Entidades/TUOrdem.hpp
+        Sistema_de_Investimentos/Testes/Dominios/TUDominios.hpp
+        Sistema_de_Investimentos/Testes/Entidades/TUEntidades.hpp)
