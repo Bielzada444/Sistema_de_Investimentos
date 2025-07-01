@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Sistema_de_Investimentos" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Sistema_de_Investimentos" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Sistema_de_Investimentos" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Carteira.cpp" />
+		<Unit filename="Carteira.hpp" />
+		<Unit filename="Codigo.cpp" />
+		<Unit filename="Codigo.hpp" />
+		<Unit filename="CodigoNegociacao.cpp" />
+		<Unit filename="CodigoNegociacao.hpp" />
+		<Unit filename="Conta.cpp" />
+		<Unit filename="Conta.hpp" />
+		<Unit filename="Cpf.cpp" />
+		<Unit filename="Cpf.hpp" />
+		<Unit filename="Data.cpp" />
+		<Unit filename="Data.hpp" />
+		<Unit filename="Dinheiro.cpp" />
+		<Unit filename="Dinheiro.hpp" />
+		<Unit filename="DominioException.hpp" />
+		<Unit filename="Dominios.hpp">
+			<Option compile="1" />
+		</Unit>
+		<Unit filename="Entidades.hpp" />
+		<Unit filename="Nome.cpp" />
+		<Unit filename="Nome.hpp" />
+		<Unit filename="Ordem.cpp" />
+		<Unit filename="Ordem.hpp" />
+		<Unit filename="Perfil.cpp" />
+		<Unit filename="Perfil.hpp" />
+		<Unit filename="Quantidade.cpp" />
+		<Unit filename="Quantidade.hpp" />
+		<Unit filename="Senha.cpp" />
+		<Unit filename="Senha.hpp" />
+		<Unit filename="TUCarteira.cpp" />
+		<Unit filename="TUCarteira.hpp" />
+		<Unit filename="TUCodigo.cpp" />
+		<Unit filename="TUCodigo.hpp" />
+		<Unit filename="TUCodigoNegociacao.cpp" />
+		<Unit filename="TUCodigoNegociacao.hpp" />
+		<Unit filename="TUConta.cpp" />
+		<Unit filename="TUConta.hpp" />
+		<Unit filename="TUCpf.cpp" />
+		<Unit filename="TUCpf.hpp" />
+		<Unit filename="TUData.cpp" />
+		<Unit filename="TUData.hpp" />
+		<Unit filename="TUDinheiro.cpp" />
+		<Unit filename="TUDinheiro.hpp" />
+		<Unit filename="TUNome.cpp" />
+		<Unit filename="TUNome.hpp" />
+		<Unit filename="TUOrdem.cpp" />
+		<Unit filename="TUOrdem.hpp" />
+		<Unit filename="TUPerfil.cpp" />
+		<Unit filename="TUPerfil.hpp" />
+		<Unit filename="TUQuantidade.cpp" />
+		<Unit filename="TUQuantidade.hpp" />
+		<Unit filename="TUSenha.cpp" />
+		<Unit filename="TUSenha.hpp" />
+		<Unit filename="ctrlAutenticacao.cpp" />
+		<Unit filename="ctrlAutenticacao.hpp" />
+		<Unit filename="ctrlCarteira.cpp" />
+		<Unit filename="ctrlCarteira.hpp" />
+		<Unit filename="ctrlConta.cpp" />
+		<Unit filename="ctrlConta.hpp" />
+		<Unit filename="interfaces.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="servicoAutenticacao.cpp" />
+		<Unit filename="servicoAutenticacao.hpp" />
+		<Unit filename="servicoCarteira.cpp" />
+		<Unit filename="servicoCarteira.hpp" />
+		<Unit filename="servicoConta.cpp" />
+		<Unit filename="servicoConta.hpp" />
+		<Unit filename="sqlite3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sqlite3.h" />
+		<Unit filename="utils.hpp" />
+		<Extensions>
+			<DoxyBlocks>
+				<comment_style block="2" line="2" />
+				<doxyfile_project output_language="Brazilian" />
+				<doxyfile_build extract_all="1" />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general use_at_in_tags="1" />
+			</DoxyBlocks>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
