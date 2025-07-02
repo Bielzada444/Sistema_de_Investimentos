@@ -2160,3 +2160,393 @@
 	"utils.hpp"
 	<limits>
 
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Carteira.cpp
+	"Carteira.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Carteira.hpp
+	"Dominios.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Dominios.hpp
+	"Codigo.hpp"
+	"CodigoNegociacao.hpp"
+	"Cpf.hpp"
+	"Data.hpp"
+	"Dinheiro.hpp"
+	"DominioException.hpp"
+	"Nome.hpp"
+	"Perfil.hpp"
+	"Quantidade.hpp"
+	"Senha.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Codigo.hpp
+	<stdexcept>
+	<string>
+	"DominioException.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/DominioException.hpp
+	<stdexcept>
+	<string>
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/CodigoNegociacao.hpp
+	<stdexcept>
+	<string>
+	"DominioException.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Cpf.hpp
+	<string>
+	<stdexcept>
+	"DominioException.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Data.hpp
+	<string>
+	"DominioException.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Dinheiro.hpp
+	"DominioException.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Nome.hpp
+	<string>
+	"DominioException.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Perfil.hpp
+	<string>
+	"DominioException.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Quantidade.hpp
+	<stdexcept>
+	"DominioException.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Senha.hpp
+	<string>
+	<stdexcept>
+	"DominioException.hpp"
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Codigo.cpp
+	"Codigo.hpp"
+	<string>
+	<algorithm>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/CodigoNegociacao.cpp
+	"CodigoNegociacao.hpp"
+	<ctype.h>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Conta.cpp
+	"Conta.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Conta.hpp
+	"Dominios.hpp"
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Cpf.cpp
+	"Cpf.hpp"
+	<string>
+	<algorithm>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/ctrlAutenticacao.cpp
+	"ctrlAutenticacao.hpp"
+	"servicoConta.hpp"
+	"ctrlConta.hpp"
+	"utils.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/ctrlAutenticacao.hpp
+	"interfaces.hpp"
+	"servicoAutenticacao.hpp"
+	<iostream>
+
+1751428517 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/interfaces.hpp
+	"Entidades.hpp"
+	<list>
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Entidades.hpp
+	"Carteira.hpp"
+	"Conta.hpp"
+	"Ordem.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/Ordem.hpp
+	"Dominios.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/servicoAutenticacao.hpp
+	"interfaces.hpp"
+	"sqlite3.h"
+	<string>
+	<iostream>
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/sqlite3.h
+	<stdarg.h>
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/servicoConta.hpp
+	"interfaces.hpp"
+	"DominioException.hpp"
+	"sqlite3.h"
+
+1751428243 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/ctrlConta.hpp
+	<iostream>
+	"interfaces.hpp"
+	"servicoConta.hpp"
+	"ctrlCarteira.hpp"
+	"servicoCarteira.hpp"
+	"ctrlOrdem.hpp"
+	"servicoOrdem.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/ctrlCarteira.hpp
+	"servicoCarteira.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/servicoCarteira.hpp
+	"interfaces.hpp"
+	"DominioException.hpp"
+	<sqlite3.h>
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/utils.hpp
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/ctrlCarteira.cpp
+	"ctrlCarteira.hpp"
+	"utils.hpp"
+	<iostream>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/ctrlConta.cpp
+	"ctrlConta.hpp"
+	"utils.hpp"
+	<limits>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Data.cpp
+	"Data.hpp"
+	<sstream>
+	<iomanip>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Dinheiro.cpp
+	"Dinheiro.hpp"
+	<cmath>
+	<stdexcept>
+	<string>
+	<algorithm>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Dominios.hpp
+	"Codigo.hpp"
+	"CodigoNegociacao.hpp"
+	"Cpf.hpp"
+	"Data.hpp"
+	"Dinheiro.hpp"
+	"DominioException.hpp"
+	"Nome.hpp"
+	"Perfil.hpp"
+	"Quantidade.hpp"
+	"Senha.hpp"
+
+1751428243 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/main.cpp
+	<iostream>
+	"Dominios.hpp"
+	"ctrlAutenticacao.hpp"
+	"ctrlConta.hpp"
+	"servicoAutenticacao.hpp"
+	"servicoConta.hpp"
+	"ctrlCarteira.hpp"
+	"servicoCarteira.hpp"
+	"ctrlOrdem.hpp"
+	"servicoOrdem.hpp"
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Nome.cpp
+	"Nome.hpp"
+	<string>
+	<cctype>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Ordem.cpp
+	"Ordem.hpp"
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Perfil.cpp
+	"Perfil.hpp"
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Quantidade.cpp
+	"Quantidade.hpp"
+	<string>
+	<algorithm>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/Senha.cpp
+	"Senha.hpp"
+	<string>
+	<cctype>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/servicoAutenticacao.cpp
+	<iostream>
+	"servicoAutenticacao.hpp"
+	<filesystem>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/servicoCarteira.cpp
+	<iostream>
+	"servicoCarteira.hpp"
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/servicoConta.cpp
+	<iostream>
+	"servicoConta.hpp"
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/sqlite3.c
+	<vxWorks.h>
+	<pthread.h>
+	"mingw.h"
+	"_mingw.h"
+	<stdarg.h>
+	"sqlite_cfg.h"
+	<stdint.h>
+	<inttypes.h>
+	<intrin.h>
+	<cmnintrin.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	"windows.h"
+	<sys/cygwin.h>
+	<errno.h>
+	<process.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<unistd.h>
+	<sys/time.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/file.h>
+	<sys/param.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	<Windows.h>
+	"sqlite_tcl.h"
+	"tcl.h"
+	"sqlite3rtree.h"
+	<ctype.h>
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+	<math.h>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUCarteira.cpp
+	"TUCarteira.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUCarteira.hpp
+	"Carteira.hpp"
+	"Dominios.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUCodigo.cpp
+	"TUCodigo.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUCodigo.hpp
+	"Codigo.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUCodigoNegociacao.cpp
+	"TUCodigoNegociacao.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUCodigoNegociacao.hpp
+	"CodigoNegociacao.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUConta.cpp
+	"TUConta.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUConta.hpp
+	"Conta.hpp"
+	"Dominios.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUCpf.cpp
+	"TUCpf.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUCpf.hpp
+	"Cpf.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUData.cpp
+	"TUData.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUData.hpp
+	"Data.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUDinheiro.cpp
+	"TUDinheiro.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUDinheiro.hpp
+	"Dinheiro.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUNome.cpp
+	"TUNome.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUNome.hpp
+	"Nome.hpp"
+	<string>
+
+1751428441 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/ctrlOrdem.hpp
+	"interfaces.hpp"
+
+1751427485 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/servicoOrdem.hpp
+	"interfaces.hpp"
+	"sqlite3.h"
+	<fstream>
+	<string>
+	<stdexcept>
+	"servicoCarteira.hpp"
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUOrdem.cpp
+	"TUOrdem.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUOrdem.hpp
+	"Ordem.hpp"
+	"Dominios.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUPerfil.cpp
+	"TUPerfil.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUPerfil.hpp
+	"Perfil.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUQuantidade.cpp
+	"TUQuantidade.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUQuantidade.hpp
+	"Quantidade.hpp"
+	<string>
+
+1751427532 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUSenha.cpp
+	"TUSenha.hpp"
+
+1751427532 /home/cleriston/Downloads/ult/Sistema_de_Investimentos/TUSenha.hpp
+	"Senha.hpp"
+	<string>
+
+1751427485 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/servicoOrdem.cpp
+	"servicoOrdem.hpp"
+	<iostream>
+	<filesystem>
+	<sstream>
+	<iomanip>
+
+1751428441 source:/home/cleriston/Downloads/ult/Sistema_de_Investimentos/ctrlOrdem.cpp
+	"ctrlOrdem.hpp"
+	<iostream>
+	<stdexcept>
+

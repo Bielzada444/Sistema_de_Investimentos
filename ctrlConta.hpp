@@ -10,17 +10,21 @@
 #include "servicoConta.hpp"
 #include "ctrlCarteira.hpp"
 #include "servicoCarteira.hpp"
+#include "ctrlOrdem.hpp"
+#include "servicoOrdem.hpp"
 
 class CtrlConta : public IUConta {
 private:
     ILNConta *servico = nullptr;
     CtrlCarteira *ctrlCarteira = nullptr;
     ServicoCarteira *servicoCarteira = nullptr;
+    IUOrdem *ctrlOrdem = nullptr;
 
 public:
     void setCntr(ILNConta *cntr);
     void setCtrlCarteira(CtrlCarteira *cntrCarteira);
     void setServicoCarteira(ServicoCarteira *servicoCarteira);
+    void setCtrlOrdem(IUOrdem* ctrl);
 
     void menu(const CPF &cpf);
 

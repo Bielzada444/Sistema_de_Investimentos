@@ -15,14 +15,17 @@ void CtrlConta::setServicoCarteira(ServicoCarteira *servicoCarteira) {
     this->servicoCarteira = servicoCarteira;
 }
 
+void CtrlConta::setCtrlOrdem(IUOrdem* ctrl) {ctrlOrdem = ctrl; }
+
 void CtrlConta::menu(const CPF &cpf) {
     int opcao;
     do {
         std::cout << "\n--- MENU CONTA ---\n";
         std::cout << "1 - Gerenciar carteiras\n";
-        std::cout << "2 - Visualizar conta\n";
-        std::cout << "3 - Editar conta\n";
-        std::cout << "4 - Excluir conta\n";
+        std::cout << "2 - Gerenciar Ordens\n";
+        std::cout << "3 - Visualizar conta\n";
+        std::cout << "4 - Editar conta\n";
+        std::cout << "5 - Excluir conta\n";
         std::cout << "0 - Logout\n";
         std::cout << "Escolha: ";
         std::cin >> opcao;
@@ -30,7 +33,13 @@ void CtrlConta::menu(const CPF &cpf) {
 
         if (opcao == 1) {
             if (ctrlCarteira) ctrlCarteira->menu(cpf);
-        } else if (opcao == 2) {
+        } else if (opcao == 2){
+            if (ctrlOrdem) {
+                    ctrlOrdem->menu(cpf);
+                } else {
+                    std::cout << "Ordens nao disponivel.\n";
+                }
+        } else if (opcao == 3) {
             try {
                 Conta conta = servico->ler(cpf);
                 std::cout << "CPF: " << cpf.getCPF() << "\n";
@@ -48,9 +57,9 @@ void CtrlConta::menu(const CPF &cpf) {
             } catch (const std::exception &e) {
                 std::cerr << "Erro: " << e.what() << "\n";
             }
-        } else if (opcao == 3) {
-            editar(cpf);
         } else if (opcao == 4) {
+            editar(cpf);
+        } else if (opcao == 5) {
             excluir(cpf);
             break;
         }

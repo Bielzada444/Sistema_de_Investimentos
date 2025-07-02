@@ -31,7 +31,7 @@ public:
 
 class ILNOrdem {
 public:
-    virtual bool criar(const Ordem &ordem) = 0;
+    virtual bool criar(const Ordem &ordem, const Codigo& codigoCarteira) = 0;
     virtual Ordem ler(const Codigo &codigo) = 0;
     virtual bool excluir(const Codigo &codigo) = 0;
     virtual list<Ordem> listarPorCarteira(const Codigo &codigoCarteira) = 0;
@@ -73,6 +73,7 @@ public:
     virtual void excluir() = 0;
     virtual void ler() = 0;
     virtual void listarPorCarteira() = 0;
+    virtual void menu(const CPF&) = 0;
     virtual ~IUOrdem() {}
 };
 
