@@ -57,6 +57,7 @@ bool CtrlAutenticacao::autenticar() {
 void CtrlAutenticacao::menu() {
     int opcao;
     do {
+        limparTela();
         std::cout << "\n--- MENU AUTENTICACAO ---\n";
         std::cout << "1 - Login\n";
         std::cout << "2 - Registrar usuario\n";
@@ -65,45 +66,71 @@ void CtrlAutenticacao::menu() {
         std::cin >> opcao;
         std::cin.ignore();
         limparTela();
-        if (opcao == 1) {
-            autenticar();
-        } else if (opcao == 2) {
-            std::string entradaCpf, entradaSenha, entradaNome, entradaPerfil;
-            std::cout << "Digite o seu CPF: ";
-            std::getline(std::cin, entradaCpf);
-            std::cout << "Digite sua senha: ";
-            std::getline(std::cin, entradaSenha);
-            std::cout << "Digite o seu nome: ";
-            std::getline(std::cin, entradaNome);
 
-            try {
-                CPF cpf;
-                Senha senha;
-                Nome nome;
+        switch (opcao) {
+            case 0: // Sair
+                std::cout << "Saindo do sistema...\n";
+                break;
 
-                cpf.setCPF(entradaCpf);
-                senha.setSenha(entradaSenha);
-                nome.setNome(entradaNome);
+            case 1: // Login
+                autenticar();
+                break;
 
+            case 2: // Registrar usuario
+            {
+                std::string entradaCpf, entradaSenha, entradaNome;
+                std::cout << "Digite o seu CPF: ";
+                std::getline(std::cin, entradaCpf);
+                std::cout << "Digite sua senha: ";
+                std::getline(std::cin, entradaSenha);
+                std::cout << "Digite o seu nome: ";
+                std::getline(std::cin, entradaNome);
 
-                servico->registrar(cpf, senha, nome);
+                try {
+                    CPF cpf;
+                    Senha senha;
+                    Nome nome;
 
-                Conta conta;
-                conta.setCpf(cpf);
-                conta.setNome(nome);
-                conta.setSenha(senha);
+                    cpf.setCPF(entradaCpf);
+                    senha.setSenha(entradaSenha);
+                    nome.setNome(entradaNome);
 
-                if (servicoConta) {
-                    if (!servicoConta->criar(conta))
-                        std::cout << "Conta registrada com sucesso!\n";
-                    else {
-                        std::cerr << "Falha ao registrar conta.\n";
+                    // Registrar no serviço de autenticação
+                    servico->registrar(cpf, senha, nome);
+
+                    // Criar conta no sistema
+                    Conta conta;
+                    conta.setCpf(cpf);
+                    conta.setNome(nome);
+                    conta.setSenha(senha);
+
+                    if (servicoConta) {
+                        if (servicoConta->criar(conta)) {
+                            std::cout << "\nConta registrada com sucesso!\n";
+                        } else {
+                            std::cerr << "\nFalha ao registrar conta.\n";
+                        }
+                    } else {
+                        std::cerr << "\nServico de conta nao disponivel.\n";
                     }
-                }
 
-            } catch (const std::exception &e) {
-                std::cerr << "Erro: " << e.what() << std::endl;
+                    std::cout << "\nAperte ENTER para continuar\n";
+                    std::cin.get();
+
+                } catch (const std::exception &e) {
+                    std::cerr << "Erro: " << e.what() << std::endl;
+                    std::cout << "\nAperte ENTER para continuar\n";
+                    std::cin.get();
+                }
+                break;
             }
+
+            default:
+                std::cout << "Opcao invalida!\n";
+                std::cout << "\nAperte ENTER para continuar\n";
+                std::cin.get();
+                break;
         }
+
     } while (opcao != 0);
 }
