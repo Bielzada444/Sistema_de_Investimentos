@@ -1,9 +1,20 @@
-// ctrlAutenticacao.cpp
+//
+// Created by Henrique on 28/06/2025.
+//
+
+///
+/// @file ctrlAutenticacao.cpp
+/// @brief Implementação da controladora de autenticação
+/// @details
+/// Contém a implementação completa dos métodos declarados em ctrlAutenticacao.hpp,
+/// incluindo o fluxo de autenticação, registro de usuários e menu interativo.
+/// Gerencia toda a interação com o usuário durante o processo de autenticação.
+///
+
 #include "ctrlAutenticacao.hpp"
 #include "servicoConta.hpp"
 #include "ctrlConta.hpp"
 #include "utils.hpp"
-
 
 void CtrlAutenticacao::setCntr(ILNAutenticacao *cntr) {
     servico = cntr;
@@ -12,10 +23,20 @@ void CtrlAutenticacao::setCntr(ILNAutenticacao *cntr) {
 void CtrlAutenticacao::setCtrlConta(ILNConta *cntrConta) {
     servicoConta = cntrConta;
 }
+
 void CtrlAutenticacao::setCtrlConta(IUConta *cntrConta) {
     ctrlConta = cntrConta;
 }
 
+///
+/// @brief Implementação do processo de autenticação
+/// @details Fluxo detalhado:
+/// 1. Captura CPF e senha via entrada padrão
+/// 2. Valida os formatos usando as classes CPF e Senha
+/// 3. Solicita autenticação ao serviço configurado
+/// 4. Em caso de sucesso, redireciona para o menu da conta
+/// 5. Trata e exibe mensagens para todos os cenários possíveis
+///
 bool CtrlAutenticacao::autenticar() {
     std::string entradaCpf, entradaSenha;
 
@@ -53,7 +74,19 @@ bool CtrlAutenticacao::autenticar() {
     }
 }
 
-
+///
+/// @brief Implementação completa do menu de autenticação
+/// @details Fluxo do menu:
+/// 1. Exibe opções disponíveis
+/// 2. Processa a seleção do usuário
+/// 3. Para cada opção:
+///    - Login: Chama autenticar()
+///    - Registro: Gerencia todo o fluxo de criação de conta
+///    - Saída: Encerra o loop
+/// 4. Trata entradas inválidas
+/// 5. Mantém a sessão ativa até seleção de saída
+/// @note Utiliza utils.hpp para limpar a tela entre operações
+///
 void CtrlAutenticacao::menu() {
     int opcao;
     do {
