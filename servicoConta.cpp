@@ -5,7 +5,7 @@ ServicoConta::ServicoConta() {
     conectar();
     criarTabela();
 }
-
+ 
 ServicoConta::~ServicoConta() {
     desconectar();
 }
