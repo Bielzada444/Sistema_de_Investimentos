@@ -3,7 +3,7 @@
 #include <sstream>
 #include <iomanip>
 #include <stdexcept>
-#include <filesystem>
+//#include <filesystem>
 
 ServicoOrdem::ServicoOrdem() {
     conectar();
@@ -16,7 +16,7 @@ ServicoOrdem::~ServicoOrdem() {
 }
 
 void ServicoOrdem::conectar() {
-    std::filesystem::create_directory("Data");
+    //std::filesystem::create_directory("Data");
     sqlite3_open("Data/ordens.db", &db);
 }
 
