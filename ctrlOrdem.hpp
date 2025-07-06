@@ -1,17 +1,26 @@
-#ifndef CTRLORDEM_HPP
-#define CTRLORDEM_HPP
+#ifndef CTRLORDEM_HPP_INCLUDED
+#define CTRLORDEM_HPP_INCLUDED
 
 #include "interfaces.hpp"
+#include "servicoOrdem.hpp"
+#include "servicoCarteira.hpp"
+#include "servicoDadosHistoricos.hpp"
+#include "Dominios.hpp"
 
 class CtrlOrdem : public IUOrdem {
 private:
-    ILNOrdem* servicoOrdem;
-    ILNCarteira* servicoCarteira;
+    ServicoOrdem *servicoOrdem = nullptr;
+    ServicoCarteira *servicoCarteira = nullptr;
+    ServicoDadosHistoricos *servicoDados = nullptr;
+    CPF cpfLogado;
 
 public:
-    void setServicoOrdem(ILNOrdem* servico) { this->servicoOrdem = servico; }
-    void setServicoCarteira(ILNCarteira* servico) { this->servicoCarteira = servico; }
-    void menu(const CPF &cpf);
+    void setServicoOrdem(ServicoOrdem *servico);
+    void setServicoCarteira(ServicoCarteira *servico);
+    void setServicoDados(ServicoDadosHistoricos *servico);
+    void setCpfLogado(const CPF &cpf);  
+
+    void menu(const CPF &cpf);  
 
     void criar() override;
     void excluir() override;
@@ -19,4 +28,4 @@ public:
     void listarPorCarteira() override;
 };
 
-#endif // CTRLORDEM_HPP
+#endif // CTRLORDEM_HPP_INCLUDED
