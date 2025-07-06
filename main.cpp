@@ -1,44 +1,47 @@
 #include <iostream>
 #include "Dominios.hpp"
-
-
 #include "ctrlAutenticacao.hpp"
 #include "ctrlConta.hpp"
+#include "ctrlOrdem.hpp"
 #include "servicoAutenticacao.hpp"
 #include "servicoConta.hpp"
-#include "ctrlCarteira.hpp"
 #include "servicoCarteira.hpp"
-#include "ctrlOrdem.hpp"
 #include "servicoOrdem.hpp"
+#include "servicoDadosHistoricos.hpp"
 
 int main() {
-    // Autenticacao
-    CtrlAutenticacao ctrlAut;
+    // Serviços
     ServicoAutenticacao servAut;
-
-    // Conta
-    CtrlConta ctrlConta;
     ServicoConta servConta;
-
-    // Carteira
     ServicoCarteira servCarteira;
-    CtrlCarteira ctrlCarteira(&servCarteira);
-
-    //Ordem
     ServicoOrdem servOrdem;
+    ServicoDadosHistoricos servDados;
+
+    // Controladores
+    CtrlAutenticacao ctrlAut;
+    CtrlConta ctrlConta;
+    CtrlCarteira ctrlCarteira(&servCarteira);
     CtrlOrdem ctrlOrdem;
 
-    // Injecao de dependencias
+    // Configuração de dependências
     ctrlAut.setCntr(&servAut);
-    ctrlAut.setCtrlConta(&servConta);   // serviço
-    ctrlAut.setCtrlConta(&ctrlConta);   // controlador
+    ctrlAut.setCtrlConta(&ctrlConta);
+
     ctrlConta.setCntr(&servConta);
     ctrlConta.setCtrlCarteira(&ctrlCarteira);
     ctrlConta.setCtrlOrdem(&ctrlOrdem);
-    ctrlOrdem.setServicoOrdem(&servOrdem);
-    servOrdem.setServicoCarteira(&servCarteira);
+    ctrlConta.setServicoCarteira(&servCarteira);
+    ctrlConta.setServicoOrdem(&servOrdem);  
+    ctrlConta.setServicoDados(&servDados);  
 
-    // Menu inicial
+    ctrlOrdem.setServicoOrdem(&servOrdem);
+    ctrlOrdem.setServicoCarteira(&servCarteira);
+    ctrlOrdem.setServicoDados(&servDados);
+
+  
+    servDados.importarTxt("Data/DADOS_HISTORICOS.txt");
+
+    // Iniciar sistema
     ctrlAut.menu();
 
     return 0;
