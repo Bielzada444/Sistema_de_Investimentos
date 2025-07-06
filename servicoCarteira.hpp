@@ -7,7 +7,7 @@
 
 #include "interfaces.hpp"
 #include "DominioException.hpp"
-#include <sqlite3.h>
+#include "sqlite3.h"
 
 class ServicoCarteira {
 private:
@@ -20,11 +20,13 @@ public:
     ServicoCarteira();
     ~ServicoCarteira();
 
+
     bool criarCarteiraPara(const CPF &, const Carteira &);
     std::list<Carteira> listarCarteirasPor(const CPF &);
     Carteira ler(const Codigo &);
     bool editar(const Carteira &);
     bool excluir(const Codigo &);
+    double obterSaldoCarteira(const Codigo &codigoCarteira);
 };
 
 #endif // SERVICOCARTEIRA_HPP_INCLUDED
