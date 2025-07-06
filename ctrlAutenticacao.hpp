@@ -13,7 +13,7 @@ class CtrlAutenticacao : public IUAutenticacao {
 private:
     ILNAutenticacao *servico;
     ILNConta *servicoConta;
-    IUConta *ctrlConta = nullptr;  // interface da camada de apresentação da conta
+    IUConta *ctrlConta = nullptr;  
 
 
 public:
