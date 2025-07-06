@@ -22,10 +22,10 @@ public:
     // Importa dados de um arquivo .txt
     bool importarTxt(const std::string &caminho);
 
-    // Verifica se um código de negociação existe
+    // Verifica se um codigo de negociacao existe
     bool ativoExiste(const std::string &codigoNegociacao);
 
-    // Consulta preco e data pelo código de negociação
+    // Consulta preco e data pelo codigo de negociacao
     std::pair<Data, Dinheiro> consultar(const CodigoNegociacao &codigo);
 };
 
