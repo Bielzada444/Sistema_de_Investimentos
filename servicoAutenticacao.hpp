@@ -1,3 +1,7 @@
+//
+// Created by Henrique on 22/06/2025.
+//
+
 #ifndef SERVICOAUTENTICACAO_HPP_INCLUDED
 #define SERVICOAUTENTICACAO_HPP_INCLUDED
 
