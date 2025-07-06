@@ -1,15 +1,35 @@
+// ctrlOrdem.cpp
+
 #include "ctrlOrdem.hpp"
+#include "utils.hpp"
 #include <iostream>
-#include <stdexcept>
+
+void CtrlOrdem::setServicoOrdem(ServicoOrdem *servico) {
+    servicoOrdem = servico;
+}
+
+void CtrlOrdem::setServicoCarteira(ServicoCarteira *servico) {
+    servicoCarteira = servico;
+}
+
+void CtrlOrdem::setServicoDados(ServicoDadosHistoricos *servico) {
+    servicoDados = servico;
+}
+
+void CtrlOrdem::setCpfLogado(const CPF &cpf) {
+    cpfLogado = cpf;
+}
 
 void CtrlOrdem::menu(const CPF &cpf) {
+    setCpfLogado(cpf);
     int opcao;
     do {
-        std::cout << "\n--- Gerenciar Ordens ---\n";
-        std::cout << "1 - Criar Nova Ordem\n";
-        std::cout << "2 - Listar Ordens de uma Carteira\n";
-        std::cout << "3 - Visualizar Ordem Específica\n";
-        std::cout << "4 - Excluir Ordem\n";
+        limparTela();
+        std::cout << "\n--- MENU ORDEM ---\n";
+        std::cout << "1 - Criar ordem\n";
+        std::cout << "2 - Listar ordens por carteira\n";
+        std::cout << "3 - Excluir ordem\n";
+        std::cout << "4 - Ver detalhes da ordem\n";
         std::cout << "0 - Voltar\n";
         std::cout << "Escolha: ";
         std::cin >> opcao;
@@ -18,130 +38,145 @@ void CtrlOrdem::menu(const CPF &cpf) {
         switch (opcao) {
             case 1: criar(); break;
             case 2: listarPorCarteira(); break;
-            case 3: ler(); break;
-            case 4: excluir(); break;
+            case 3: excluir(); break;
+            case 4: ler(); break;
+            case 0: break;
+            default: std::cout << "Opcao invalida.\n";
+             std::cout << "Pressione ENTER para sair" << "\n";
+                std::cin.get();
         }
+
     } while (opcao != 0);
 }
 
 void CtrlOrdem::criar() {
-    std::string codigoCarteiraStr, codigoNegociacaoStr, dataStr, quantidadeStr, codigoOrdemStr;
-
-    std::cout << "Digite o codigo da Ordem: ";
-    std::getline(std::cin, codigoOrdemStr);
-
-    std::cout << "Digite o codigo da Carteira onde a ordem sera criada: ";
-    std::getline(std::cin, codigoCarteiraStr);
-
-    std::cout << "Digite o codigo de negociacao do papel (ex: IVVB11): ";
-    std::getline(std::cin, codigoNegociacaoStr);
-
-    std::cout << "Digite a data (AAAAMMDD): ";
+    std::string codCarteiraStr, codNegStr, qtdStr, dataStr, codOrdemStr;
+    std::cout << "Codigo da carteira: ";
+    std::getline(std::cin, codCarteiraStr);
+    std::cout << "Codigo de negociacao: ";
+    std::getline(std::cin, codNegStr);
+    std::cout << "Quantidade: ";
+    std::getline(std::cin, qtdStr);
+    std::cout << "Data (AAAAMMDD): ";
     std::getline(std::cin, dataStr);
-
-    std::cout << "Digite a quantidade: ";
-    std::getline(std::cin, quantidadeStr);
-
-    try {
-        Codigo codigoCarteira;
-        codigoCarteira.setCodigo(codigoCarteiraStr);
-        Codigo codigoOrdem;
-        codigoOrdem.setCodigo(codigoOrdemStr);
-        CodigoNegociacao codigoNegociacao;
-        codigoNegociacao.setCodigoNegociacao(codigoNegociacaoStr);
-        Data data;
-        data.setData(dataStr);
-        Quantidade quantidade;
-        quantidade.setQuantidade(quantidadeStr);
-
-        Ordem ordem;
-        ordem.setCodigo(codigoOrdem);
-        ordem.setCodigoNegociacao(codigoNegociacao);
-        ordem.setData(data);
-        ordem.setQuantidade(quantidade);
-
-        bool sucesso = servicoOrdem->criar(ordem , codigoCarteira);
-
-        if (sucesso) {
-            std::cout << "Ordem criada com sucesso!\n";
-        } else {
-            std::cout << "Nao foi possivel criar a ordem.\n";
-        }
-
-    } catch (const std::invalid_argument& e) {
-        std::cerr << "Erro de formato nos dados: " << e.what() << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << "Erro: " << e.what() << std::endl;
-    }
-}
-
-void CtrlOrdem::listarPorCarteira() {
-    std::string codigoCarteiraStr;
-    std::cout << "\nDigite o codigo da carteira: ";
-    std::getline(std::cin, codigoCarteiraStr);
+    std::cout << "Codigo da ordem: ";
+    std::getline(std::cin, codOrdemStr);
 
     try {
         Codigo codigoCarteira;
-        codigoCarteira.setCodigo(codigoCarteiraStr);
+        codigoCarteira.setCodigo(codCarteiraStr);
 
-        list<Ordem> ordens = servicoOrdem->listarPorCarteira(codigoCarteira);
-
-        if (ordens.empty()) {
-            std::cout << "Nenhuma ordem encontrada para esta carteira." << std::endl;
+        if (!servicoDados->ativoExiste(codNegStr)) {
+            std::cerr << "Ativo nao encontrado no historico.\n";
             return;
         }
 
-        std::cout << "\n--- Ordens da Carteira " << codigoCarteira.getCodigo() << " ---\n";
-        for (const auto& ordem : ordens) {
-            std::cout << "Codigo da Ordem: " << ordem.getCodigo().getCodigo() << "\n";
-            std::cout << "  - Ativo: " << ordem.getCodigoNegociacao().getCodigoNegociacao() << "\n";
-            std::cout << "  - Data: " << ordem.getData().getData() << "\n";
-            std::cout << "  - Quantidade: " << ordem.getQuantidade().getQuantidade() << "\n";
-            std::cout << "  - Preco Total: R$ " << ordem.getDinheiro().getDinheiro() << "\n\n";
+        CodigoNegociacao codNeg;
+        codNeg.setCodigoNegociacao(codNegStr);
+
+        Data data;
+        data.setData(dataStr);
+
+        Quantidade qtd;
+        qtd.setQuantidade(qtdStr);
+
+        Dinheiro preco;
+        auto [dataHistorica, precoHistorico] = servicoDados->consultar(codNeg);
+        preco = precoHistorico;  // usa o preço extraído do histórico
+
+        Ordem ordem;
+        Codigo codOrdem;
+        codOrdem.setCodigo(codOrdemStr);
+
+        ordem.setCodigo(codOrdem);
+        ordem.setCodigoNegociacao(codNeg);
+        ordem.setData(data);
+        ordem.setQuantidade(qtd);
+        ordem.setDinheiro(preco);
+
+        if (servicoOrdem->criar(cpfLogado, codigoCarteira, ordem)) {
+            std::cout << "Ordem criada com sucesso.\n";
+        } else {
+            std::cerr << "Erro ao criar ordem.\n";
         }
 
-    } catch (const std::exception& e) {
-        std::cerr << "Erro: " << e.what() << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Erro: " << e.what() << "\n";
+    }
+         std::cout << "Aperte ENTER para continuar" << "\n";
+         std::cin.get();
+}
+
+void CtrlOrdem::listarPorCarteira() {
+    std::string codCarteiraStr;
+    std::cout << "Codigo da carteira: ";
+    std::getline(std::cin, codCarteiraStr);
+
+    try {
+        Codigo codigoCarteira;
+        codigoCarteira.setCodigo(codCarteiraStr);
+
+
+        auto ordens = servicoOrdem->listarPorCarteira(cpfLogado, codigoCarteira);
+
+        if (ordens.empty()) {
+            std::cout << "Nenhuma ordem encontrada.\n";
+            return;
+        }
+
+        for (const auto &ordem : ordens) {
+            std::cout << "\n--- Ordem " << ordem.getCodigo().getCodigo() << " ---\n";
+            std::cout << "Ativo: " << ordem.getCodigoNegociacao().getCodigoNegociacao() << "\n";
+            std::cout << "Data: " << ordem.getData().getData() << "\n";
+            std::cout << "Preco: R$ " << ordem.getDinheiro().getDinheiro() << "\n";
+            std::cout << "Quantidade: " << ordem.getQuantidade().getQuantidade() << "\n";
+        }
+
+    } catch (const std::exception &e) {
+        std::cerr << "Erro: " << e.what() << "\n";
+    }
+    std::cout << "Aperte ENTER para continuar" << "\n";
+         std::cin.get();
+}
+
+void CtrlOrdem::excluir() {
+    std::string cod;
+    std::cout << "Codigo da ordem a excluir: ";
+    std::getline(std::cin, cod);
+
+    try {
+        Codigo codigo;
+        codigo.setCodigo(cod);
+
+        if (servicoOrdem->excluir(codigo)) {
+            std::cout << "Ordem excluida com sucesso.\n";
+        } else {
+            std::cerr << "Falha ao excluir ordem.\n";
+        }
+
+    } catch (const std::exception &e) {
+        std::cerr << "Erro: " << e.what() << "\n";
     }
 }
 
 void CtrlOrdem::ler() {
-    std::string codigoOrdemStr;
-    std::cout << "\nDigite o codigo da ordem: ";
-    std::getline(std::cin, codigoOrdemStr);
+    std::string cod;
+    std::cout << "Codigo da ordem: ";
+    std::getline(std::cin, cod);
 
     try {
-        Codigo codigoOrdem;
-        codigoOrdem.setCodigo(codigoOrdemStr);
+        Codigo codigo;
+        codigo.setCodigo(cod);
+        Ordem ordem = servicoOrdem->ler(codigo);
 
-        Ordem ordem = servicoOrdem->ler(codigoOrdem);
-
-        std::cout << "\n--- Detalhes da Ordem " << ordem.getCodigo().getCodigo() << " ---\n";
-        std::cout << "Codigo de Negociacao: " << ordem.getCodigoNegociacao().getCodigoNegociacao() << "\n";
+        std::cout << "\n--- Detalhes da Ordem ---\n";
+        std::cout << "Codigo: " << ordem.getCodigo().getCodigo() << "\n";
+        std::cout << "Ativo: " << ordem.getCodigoNegociacao().getCodigoNegociacao() << "\n";
         std::cout << "Data: " << ordem.getData().getData() << "\n";
+        std::cout << "Preco: R$ " << ordem.getDinheiro().getDinheiro() << "\n";
         std::cout << "Quantidade: " << ordem.getQuantidade().getQuantidade() << "\n";
-        std::cout << "Preco Total: R$ " << ordem.getDinheiro().getDinheiro() << "\n";
 
-    } catch (const std::exception& e) {
-        std::cerr << "Erro: " << e.what() << std::endl;
-    }
-}
-
-void CtrlOrdem::excluir() {
-    std::string codigoOrdemStr;
-    std::cout << "\nDigite o codigo da ordem que deseja excluir: ";
-    std::getline(std::cin, codigoOrdemStr);
-
-    try {
-        Codigo codigoOrdem;
-        codigoOrdem.setCodigo(codigoOrdemStr);
-
-        if (servicoOrdem->excluir(codigoOrdem)) {
-            std::cout << "Ordem excluida com sucesso." << std::endl;
-        } else {
-            std::cout << "Nao foi possivel excluir a ordem. Verifique se o codigo esta correto." << std::endl;
-        }
-    } catch (const std::exception& e) {
-        std::cerr << "Erro: " << e.what() << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Erro: " << e.what() << "\n";
     }
 }
