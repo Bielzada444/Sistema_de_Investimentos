@@ -1,6 +1,6 @@
 #include <iostream>
 #include "servicoAutenticacao.hpp"
-#include <filesystem>
+//#include <filesystem>
 
 ServicoAutenticacao::ServicoAutenticacao() {
     conectar();
@@ -13,7 +13,7 @@ ServicoAutenticacao::~ServicoAutenticacao() {
 }
 
 void ServicoAutenticacao::conectar() {
-    std::filesystem::create_directory("Data");
+   // std::filesystem::create_directory("Data");
 
     int rc = sqlite3_open("Data/usuarios.db", &db);
     if (rc) {
