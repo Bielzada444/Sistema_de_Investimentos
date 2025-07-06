@@ -31,7 +31,7 @@ void ServicoCarteira::criarTabela() {
                       "codigo TEXT PRIMARY KEY,"
                       "nome TEXT NOT NULL,"
                       "perfil TEXT NOT NULL,"
-                      "cpf TEXT NOT NULL);"; // cpf é apenas persistido
+                      "cpf TEXT NOT NULL);"; // cpf eh apenas persistido
     char *errMsg = nullptr;
     sqlite3_exec(db, sql, nullptr, nullptr, &errMsg);
     if (errMsg) {
@@ -158,9 +158,29 @@ bool ServicoCarteira::editar(const Carteira &carteira) {
 }
 
 bool ServicoCarteira::excluir(const Codigo &codigo) {
-    conectar();
-    const char *sql = "DELETE FROM carteiras WHERE codigo = ?;";
+    sqlite3_open("Data/ordens.db", &db);
+
+    // Verifica se existe ordem associada a carteira
+    const char *verifica = "SELECT 1 FROM ordens WHERE codigo_carteira = ? LIMIT 1;";
     sqlite3_stmt *stmt;
+
+    if (sqlite3_prepare_v2(db, verifica, -1, &stmt, nullptr) == SQLITE_OK) {
+        sqlite3_bind_text(stmt, 1, codigo.getCodigo().c_str(), -1, SQLITE_STATIC);
+        if (sqlite3_step(stmt) == SQLITE_ROW) {
+            std::cerr << "Erro: Esta carteira possui ordens associadas e nao pode ser excluida.\n";
+            sqlite3_finalize(stmt);
+            desconectar();
+            std::cout << "Aperte ENTER para continuar" << "\n";
+            std::cin.get();
+            return false;
+
+        }
+    }
+    sqlite3_finalize(stmt);
+    desconectar();
+    conectar();
+    // Agora pode excluir sabosta
+    const char *sql = "DELETE FROM carteiras WHERE codigo = ?;";
     bool sucesso = false;
 
     if (sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr) == SQLITE_OK) {
@@ -171,4 +191,24 @@ bool ServicoCarteira::excluir(const Codigo &codigo) {
     sqlite3_finalize(stmt);
     desconectar();
     return sucesso;
+}
+double ServicoCarteira::obterSaldoCarteira(const Codigo &codigoCarteira) {
+    sqlite3_open("Data/ordens.db", &db);
+    const char *sql =
+        "SELECT SUM(preco * quantidade) "
+        "FROM ordens WHERE codigo_carteira = ?;";
+
+    sqlite3_stmt *stmt;
+    double saldo = 0.0;
+
+    if (sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr) == SQLITE_OK) {
+        sqlite3_bind_text(stmt, 1, codigoCarteira.getCodigo().c_str(), -1, SQLITE_STATIC);
+        if (sqlite3_step(stmt) == SQLITE_ROW && sqlite3_column_type(stmt, 0) != SQLITE_NULL) {
+            saldo = sqlite3_column_double(stmt, 0);
+        }
+    }
+
+    sqlite3_finalize(stmt);
+    desconectar();
+    return saldo;
 }
